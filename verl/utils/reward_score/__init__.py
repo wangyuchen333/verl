@@ -34,6 +34,9 @@ def _default_compute_score(data_source, solution_str, ground_truth, extra_info=N
         from . import math_dapo
 
         res = math_dapo.compute_score(solution_str, ground_truth)
+    elif 'jec-qa-1-multi-choice' in data_source:
+        from . import law
+        res = law.compute_score(solution_str, ground_truth)
     elif data_source in [
         "numina_aops_forum",
         "numina_synthetic_math",

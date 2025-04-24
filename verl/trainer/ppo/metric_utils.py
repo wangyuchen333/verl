@@ -217,33 +217,52 @@ def process_validation_metrics(
                     continue
                 metric = {}
                 n_resps = len(var_vals)
-                metric[f"mean@{n_resps}"] = np.mean(var_vals)
-                metric[f"std@{n_resps}"] = np.std(var_vals)
 
-                ns = []
-                n = 2
-                while n < n_resps:
-                    ns.append(n)
-                    n *= 2
-                ns.append(n_resps)
+                # PATCH: handle dictionary-valued scores
+                if isinstance(var_vals[0], dict):
+                    # Flatten nested dicts: {"score": float, "extra_info": {submetric: float}}
+                    sub_metrics = defaultdict(list)
+                    for d in var_vals:
+                        sub_metrics["score"].append(d.get("score", 0))
+                        for k, v in d.get("extra_info", {}).items():
+                            sub_metrics[k].append(v)
 
-                for n in ns:
-                    # Best/Worst-of-N
-                    [(bon_mean, bon_std), (won_mean, won_std)] = bootstrap_metric(
-                        data=var_vals, subset_size=n, reduce_fns=[np.max, np.min], seed=seed
-                    )
-                    metric[f"best@{n}/mean"], metric[f"best@{n}/std"] = bon_mean, bon_std
-                    metric[f"worst@{n}/mean"], metric[f"worst@{n}/std"] = won_mean, won_std
-                    # Majority voting
-                    if var2vals.get("pred", None) is not None:
-                        vote_data = [{"val": val, "pred": pred} for val, pred in zip(var_vals, var2vals["pred"])]
-                        [(maj_n_mean, maj_n_std)] = bootstrap_metric(
-                            data=vote_data,
-                            subset_size=n,
-                            reduce_fns=[partial(calc_maj_val, vote_key="pred", val_key="val")],
-                            seed=seed,
+                    # Now calculate mean/std for each submetric
+                    for sub_key, sub_vals in sub_metrics.items():
+                        metric[f"{sub_key}@{n_resps}"] = np.mean(sub_vals)
+                        metric[f"{sub_key}/std@{n_resps}"] = np.std(sub_vals)
+
+                    # Skip best/worst/maj voting unless needed for submetrics
+                    # You can add that logic later if required
+                else:
+                    # original float metric
+                    metric[f"mean@{n_resps}"] = np.mean(var_vals)
+                    metric[f"std@{n_resps}"] = np.std(var_vals)
+
+                    ns = []
+                    n = 2
+                    while n < n_resps:
+                        ns.append(n)
+                        n *= 2
+                    ns.append(n_resps)
+
+                    for n in ns:
+                        # Best/Worst-of-N
+                        [(bon_mean, bon_std), (won_mean, won_std)] = bootstrap_metric(
+                            data=var_vals, subset_size=n, reduce_fns=[np.max, np.min], seed=seed
                         )
-                        metric[f"maj@{n}/mean"], metric[f"maj@{n}/std"] = maj_n_mean, maj_n_std
+                        metric[f"best@{n}/mean"], metric[f"best@{n}/std"] = bon_mean, bon_std
+                        metric[f"worst@{n}/mean"], metric[f"worst@{n}/std"] = won_mean, won_std
+                        # Majority voting
+                        if var2vals.get("pred", None) is not None:
+                            vote_data = [{"val": val, "pred": pred} for val, pred in zip(var_vals, var2vals["pred"])]
+                            [(maj_n_mean, maj_n_std)] = bootstrap_metric(
+                                data=vote_data,
+                                subset_size=n,
+                                reduce_fns=[partial(calc_maj_val, vote_key="pred", val_key="val")],
+                                seed=seed,
+                            )
+                            metric[f"maj@{n}/mean"], metric[f"maj@{n}/std"] = maj_n_mean, maj_n_std
 
                 data_src2prompt2var2metric[data_source][prompt][var_name] = metric
 
