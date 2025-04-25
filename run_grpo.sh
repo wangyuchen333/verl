@@ -35,9 +35,8 @@ nohup python3 -m verl.trainer.main_ppo \
     actor_rollout_ref.model.use_remove_padding=True \
     actor_rollout_ref.actor.ppo_mini_batch_size=64 \
     actor_rollout_ref.actor.ppo_micro_batch_size_per_gpu=16 \
-    actor_rollout_ref.actor.use_kl_loss=True \
-    actor_rollout_ref.actor.kl_loss_coef=0.001 \
-    actor_rollout_ref.actor.kl_loss_type=low_var_kl \
+    actor_rollout_ref.actor.loss_agg_mode="seq-mean-token-sum-norm" \
+    actor_rollout_ref.actor.use_kl_loss=False \
     actor_rollout_ref.model.enable_gradient_checkpointing=True \
     actor_rollout_ref.actor.fsdp_config.param_offload=False \
     actor_rollout_ref.actor.fsdp_config.optimizer_offload=False \
@@ -48,7 +47,8 @@ nohup python3 -m verl.trainer.main_ppo \
     actor_rollout_ref.rollout.n=6 \
     actor_rollout_ref.ref.log_prob_micro_batch_size_per_gpu=32 \
     actor_rollout_ref.ref.fsdp_config.param_offload=True \
-    algorithm.kl_ctrl.kl_coef=0.001 \
+    algorithm.kl_ctrl.kl_coef=0 \
+    algorithm.norm_adv_by_std_in_grpo=False \
     trainer.critic_warmup=0 \
     trainer.logger="['console']" \
     trainer.project_name='Lawyer-Zero' \
