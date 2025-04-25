@@ -6,7 +6,6 @@
 **/wget-log
 **/_build/
 **/*.ckpt
-**/outputs
 **/*.tar.gz
 **/playground
 **/wandb
