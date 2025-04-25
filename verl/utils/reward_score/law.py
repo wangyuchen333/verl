@@ -29,7 +29,7 @@ def verify_multiple_choice(predict, ground_truth):
     missing_answers = ground_truth - chosen_answers  # Correct answers missing from the prediction
 
     # Soft penalty: subtract 0.5 for each incorrect or missing answer
-    score = max(0.0, 1.0 - 0.7 * (len(incorrect_answers) + len(missing_answers)))
+    score = max(0.0, 1.0 - 0.9 * (len(incorrect_answers) + len(missing_answers)))
     return score
 
 

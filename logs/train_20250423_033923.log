@@ -1,0 +1,522 @@
+2025-04-23 03:39:29,485	INFO worker.py:1832 -- Started a local Ray instance. View the dashboard at [1m[32m127.0.0.1:8266 [39m[22m
+[36m(TaskRunner pid=763384)[0m {'actor_rollout_ref': {'actor': {'checkpoint': {'contents': ['model',
+[36m(TaskRunner pid=763384)[0m                                                              'optimizer',
+[36m(TaskRunner pid=763384)[0m                                                              'extra']},
+[36m(TaskRunner pid=763384)[0m                                  'clip_ratio': 0.2,
+[36m(TaskRunner pid=763384)[0m                                  'clip_ratio_c': 3.0,
+[36m(TaskRunner pid=763384)[0m                                  'clip_ratio_high': 0.2,
+[36m(TaskRunner pid=763384)[0m                                  'clip_ratio_low': 0.2,
+[36m(TaskRunner pid=763384)[0m                                  'entropy_coeff': 0,
+[36m(TaskRunner pid=763384)[0m                                  'fsdp_config': {'fsdp_dtype': 'float16',
+[36m(TaskRunner pid=763384)[0m                                                  'fsdp_size': -1,
+[36m(TaskRunner pid=763384)[0m                                                  'model_dtype': 'float16',
+[36m(TaskRunner pid=763384)[0m                                                  'optimizer_offload': False,
+[36m(TaskRunner pid=763384)[0m                                                  'param_offload': True,
+[36m(TaskRunner pid=763384)[0m                                                  'wrap_policy': {'min_num_params': 0}},
+[36m(TaskRunner pid=763384)[0m                                  'grad_clip': 1.0,
+[36m(TaskRunner pid=763384)[0m                                  'kl_loss_coef': 0.001,
+[36m(TaskRunner pid=763384)[0m                                  'kl_loss_type': 'low_var_kl',
+[36m(TaskRunner pid=763384)[0m                                  'loss_agg_mode': 'token-mean',
+[36m(TaskRunner pid=763384)[0m                                  'optim': {'lr': 1e-06,
+[36m(TaskRunner pid=763384)[0m                                            'lr_warmup_steps': -1,
+[36m(TaskRunner pid=763384)[0m                                            'lr_warmup_steps_ratio': 0.0,
+[36m(TaskRunner pid=763384)[0m                                            'min_lr_ratio': None,
+[36m(TaskRunner pid=763384)[0m                                            'total_training_steps': -1,
+[36m(TaskRunner pid=763384)[0m                                            'warmup_style': 'constant',
+[36m(TaskRunner pid=763384)[0m                                            'weight_decay': 0.01},
+[36m(TaskRunner pid=763384)[0m                                  'ppo_epochs': 1,
+[36m(TaskRunner pid=763384)[0m                                  'ppo_max_token_len_per_gpu': 16384,
+[36m(TaskRunner pid=763384)[0m                                  'ppo_micro_batch_size': None,
+[36m(TaskRunner pid=763384)[0m                                  'ppo_micro_batch_size_per_gpu': 16,
+[36m(TaskRunner pid=763384)[0m                                  'ppo_mini_batch_size': 32,
+[36m(TaskRunner pid=763384)[0m                                  'shuffle': False,
+[36m(TaskRunner pid=763384)[0m                                  'strategy': 'fsdp',
+[36m(TaskRunner pid=763384)[0m                                  'ulysses_sequence_parallel_size': 1,
+[36m(TaskRunner pid=763384)[0m                                  'use_dynamic_bsz': False,
+[36m(TaskRunner pid=763384)[0m                                  'use_kl_loss': False,
+[36m(TaskRunner pid=763384)[0m                                  'use_torch_compile': True},
+[36m(TaskRunner pid=763384)[0m                        'hybrid_engine': True,
+[36m(TaskRunner pid=763384)[0m                        'model': {'enable_gradient_checkpointing': True,
+[36m(TaskRunner pid=763384)[0m                                  'external_lib': None,
+[36m(TaskRunner pid=763384)[0m                                  'override_config': {},
+[36m(TaskRunner pid=763384)[0m                                  'path': '/home/wangyc/verl/Qwen/Qwen2___5-7B-Instruct',
+[36m(TaskRunner pid=763384)[0m                                  'use_liger': False,
+[36m(TaskRunner pid=763384)[0m                                  'use_remove_padding': True},
+[36m(TaskRunner pid=763384)[0m                        'ref': {'fsdp_config': {'param_offload': True,
+[36m(TaskRunner pid=763384)[0m                                                'wrap_policy': {'min_num_params': 0}},
+[36m(TaskRunner pid=763384)[0m                                'log_prob_max_token_len_per_gpu': 16384,
+[36m(TaskRunner pid=763384)[0m                                'log_prob_micro_batch_size': None,
+[36m(TaskRunner pid=763384)[0m                                'log_prob_micro_batch_size_per_gpu': 32,
+[36m(TaskRunner pid=763384)[0m                                'log_prob_use_dynamic_bsz': False,
+[36m(TaskRunner pid=763384)[0m                                'strategy': 'fsdp',
+[36m(TaskRunner pid=763384)[0m                                'ulysses_sequence_parallel_size': 1},
+[36m(TaskRunner pid=763384)[0m                        'rollout': {'disable_log_stats': True,
+[36m(TaskRunner pid=763384)[0m                                    'do_sample': True,
+[36m(TaskRunner pid=763384)[0m                                    'dtype': 'bfloat16',
+[36m(TaskRunner pid=763384)[0m                                    'enable_chunked_prefill': True,
+[36m(TaskRunner pid=763384)[0m                                    'enforce_eager': True,
+[36m(TaskRunner pid=763384)[0m                                    'engine_kwargs': {'swap_space': None},
+[36m(TaskRunner pid=763384)[0m                                    'free_cache_engine': True,
+[36m(TaskRunner pid=763384)[0m                                    'gpu_memory_utilization': 0.6,
+[36m(TaskRunner pid=763384)[0m                                    'ignore_eos': False,
+[36m(TaskRunner pid=763384)[0m                                    'load_format': 'dummy_dtensor',
+[36m(TaskRunner pid=763384)[0m                                    'log_prob_max_token_len_per_gpu': 16384,
+[36m(TaskRunner pid=763384)[0m                                    'log_prob_micro_batch_size': None,
+[36m(TaskRunner pid=763384)[0m                                    'log_prob_micro_batch_size_per_gpu': 32,
+[36m(TaskRunner pid=763384)[0m                                    'log_prob_use_dynamic_bsz': False,
+[36m(TaskRunner pid=763384)[0m                                    'max_model_len': None,
+[36m(TaskRunner pid=763384)[0m                                    'max_num_batched_tokens': 8192,
+[36m(TaskRunner pid=763384)[0m                                    'max_num_seqs': 1024,
+[36m(TaskRunner pid=763384)[0m                                    'n': 6,
+[36m(TaskRunner pid=763384)[0m                                    'name': 'vllm',
+[36m(TaskRunner pid=763384)[0m                                    'prompt_length': 1024,
+[36m(TaskRunner pid=763384)[0m                                    'response_length': 1024,
+[36m(TaskRunner pid=763384)[0m                                    'temperature': 1.0,
+[36m(TaskRunner pid=763384)[0m                                    'tensor_model_parallel_size': 2,
+[36m(TaskRunner pid=763384)[0m                                    'top_k': -1,
+[36m(TaskRunner pid=763384)[0m                                    'top_p': 1,
+[36m(TaskRunner pid=763384)[0m                                    'use_fire_sampling': False,
+[36m(TaskRunner pid=763384)[0m                                    'val_kwargs': {'do_sample': False,
+[36m(TaskRunner pid=763384)[0m                                                   'n': 1,
+[36m(TaskRunner pid=763384)[0m                                                   'temperature': 0,
+[36m(TaskRunner pid=763384)[0m                                                   'top_k': -1,
+[36m(TaskRunner pid=763384)[0m                                                   'top_p': 1.0}}},
+[36m(TaskRunner pid=763384)[0m  'algorithm': {'adv_estimator': 'grpo',
+[36m(TaskRunner pid=763384)[0m                'gamma': 1.0,
+[36m(TaskRunner pid=763384)[0m                'kl_ctrl': {'horizon': 10000,
+[36m(TaskRunner pid=763384)[0m DeprecationWarning: `ray.state.available_resources_per_node` is a private attribute and access will be removed in a future Ray version.
+[36m(TaskRunner pid=763384)[0m WARNING:2025-04-23 03:39:40,091:Waiting for register center actor yeT8Zr_register_center to be ready. Elapsed time: 0 seconds out of 300 seconds.
+[36m(WorkerDict pid=773057)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[36m(WorkerDict pid=773057)[0m Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+[36m(TaskRunner pid=763384)[0m                            'kl_coef': 0.0,
+[36m(TaskRunner pid=763384)[0m                            'target_kl': 0.1,
+[36m(TaskRunner pid=763384)[0m                            'type': 'fixed'},
+[36m(TaskRunner pid=763384)[0m                'kl_penalty': 'kl',
+[36m(TaskRunner pid=763384)[0m                'lam': 1.0,
+[36m(TaskRunner pid=763384)[0m                'norm_adv_by_std_in_grpo': True,
+[36m(TaskRunner pid=763384)[0m                'use_kl_in_reward': False},
+[36m(TaskRunner pid=763384)[0m  'critic': {'checkpoint': {'contents': ['model', 'optimizer', 'extra']},
+[36m(TaskRunner pid=763384)[0m             'cliprange_value': 0.5,
+[36m(TaskRunner pid=763384)[0m             'forward_max_token_len_per_gpu': 32768,
+[36m(TaskRunner pid=763384)[0m             'forward_micro_batch_size': None,
+[36m(TaskRunner pid=763384)[0m             'forward_micro_batch_size_per_gpu': None,
+[36m(TaskRunner pid=763384)[0m             'grad_clip': 1.0,
+[36m(TaskRunner pid=763384)[0m             'model': {'enable_gradient_checkpointing': True,
+[36m(TaskRunner pid=763384)[0m                       'external_lib': None,
+[36m(TaskRunner pid=763384)[0m                       'fsdp_config': {'fsdp_size': -1,
+[36m(TaskRunner pid=763384)[0m                                       'optimizer_offload': False,
+[36m(TaskRunner pid=763384)[0m                                       'param_offload': False,
+[36m(TaskRunner pid=763384)[0m                                       'wrap_policy': {'min_num_params': 0}},
+[36m(TaskRunner pid=763384)[0m                       'override_config': {},
+[36m(TaskRunner pid=763384)[0m                       'path': '~/models/deepseek-llm-7b-chat',
+[36m(TaskRunner pid=763384)[0m                       'tokenizer_path': '/home/wangyc/verl/Qwen/Qwen2___5-7B-Instruct',
+[36m(TaskRunner pid=763384)[0m                       'use_remove_padding': False},
+[36m(TaskRunner pid=763384)[0m             'optim': {'lr': 1e-05,
+[36m(TaskRunner pid=763384)[0m                       'lr_warmup_steps_ratio': 0.0,
+[36m(TaskRunner pid=763384)[0m                       'min_lr_ratio': None,
+[36m(TaskRunner pid=763384)[0m                       'total_training_steps': -1,
+[36m(TaskRunner pid=763384)[0m                       'warmup_style': 'constant',
+[36m(TaskRunner pid=763384)[0m                       'weight_decay': 0.01},
+[36m(TaskRunner pid=763384)[0m             'ppo_epochs': 1,
+[36m(TaskRunner pid=763384)[0m             'ppo_max_token_len_per_gpu': 32768,
+[36m(TaskRunner pid=763384)[0m             'ppo_micro_batch_size': None,
+[36m(TaskRunner pid=763384)[0m             'ppo_micro_batch_size_per_gpu': None,
+[36m(TaskRunner pid=763384)[0m             'ppo_mini_batch_size': 32,
+[36m(TaskRunner pid=763384)[0m             'rollout_n': 6,
+[36m(TaskRunner pid=763384)[0m             'shuffle': False,
+[36m(TaskRunner pid=763384)[0m             'strategy': 'fsdp',
+[36m(TaskRunner pid=763384)[0m             'ulysses_sequence_parallel_size': 1,
+[36m(TaskRunner pid=763384)[0m             'use_dynamic_bsz': False},
+[36m(TaskRunner pid=763384)[0m  'custom_reward_function': {'name': 'compute_score', 'path': None},
+[36m(TaskRunner pid=763384)[0m  'data': {'custom_cls': {'name': None, 'path': None},
+[36m(TaskRunner pid=763384)[0m           'filter_overlong_prompts': False,
+[36m(TaskRunner pid=763384)[0m           'filter_overlong_prompts_workers': 1,
+[36m(TaskRunner pid=763384)[0m           'image_key': 'images',
+[36m(TaskRunner pid=763384)[0m           'max_prompt_length': 1024,
+[36m(TaskRunner pid=763384)[0m           'max_response_length': 1024,
+[36m(TaskRunner pid=763384)[0m           'prompt_key': 'prompt',
+[36m(TaskRunner pid=763384)[0m           'return_raw_chat': False,
+[36m(TaskRunner pid=763384)[0m           'return_raw_input_ids': False,
+[36m(TaskRunner pid=763384)[0m           'reward_fn_key': 'data_source',
+[36m(TaskRunner pid=763384)[0m           'shuffle': True,
+[36m(TaskRunner pid=763384)[0m           'tokenizer': None,
+[36m(TaskRunner pid=763384)[0m           'train_batch_size': 64,
+[36m(TaskRunner pid=763384)[0m           'train_files': '/home/wangyc/verl/data/jec-qa-1-multi-choice/train.parquet',
+[36m(TaskRunner pid=763384)[0m           'truncation': 'error',
+[36m(TaskRunner pid=763384)[0m           'val_batch_size': 1312,
+[36m(TaskRunner pid=763384)[0m           'val_files': '/home/wangyc/verl/data/jec-qa-1-multi-choice/test.parquet',
+[36m(TaskRunner pid=763384)[0m           'video_key': 'videos'},
+[36m(TaskRunner pid=763384)[0m  'ray_init': {'num_cpus': None},
+[36m(TaskRunner pid=763384)[0m  'reward_model': {'enable': False,
+[36m(TaskRunner pid=763384)[0m                   'forward_max_token_len_per_gpu': 32768,
+[36m(TaskRunner pid=763384)[0m                   'max_length': None,
+[36m(TaskRunner pid=763384)[0m                   'micro_batch_size': None,
+[36m(TaskRunner pid=763384)[0m                   'micro_batch_size_per_gpu': None,
+[36m(TaskRunner pid=763384)[0m                   'model': {'external_lib': None,
+[36m(TaskRunner pid=763384)[0m                             'fsdp_config': {'fsdp_size': -1,
+[36m(TaskRunner pid=763384)[0m                                             'param_offload': False,
+[36m(TaskRunner pid=763384)[0m                                             'wrap_policy': {'min_num_params': 0}},
+[36m(TaskRunner pid=763384)[0m                             'input_tokenizer': '/home/wangyc/verl/Qwen/Qwen2___5-7B-Instruct',
+[36m(TaskRunner pid=763384)[0m                             'path': '~/models/FsfairX-LLaMA3-RM-v0.1',
+[36m(TaskRunner pid=763384)[0m                             'use_remove_padding': False},
+[36m(TaskRunner pid=763384)[0m                   'reward_manager': 'naive',
+[36m(TaskRunner pid=763384)[0m                   'strategy': 'fsdp',
+[36m(TaskRunner pid=763384)[0m                   'ulysses_sequence_parallel_size': 1,
+[36m(TaskRunner pid=763384)[0m                   'use_dynamic_bsz': False},
+[36m(TaskRunner pid=763384)[0m  'trainer': {'balance_batch': True,
+[36m(TaskRunner pid=763384)[0m              'critic_warmup': 0,
+[36m(TaskRunner pid=763384)[0m              'default_hdfs_dir': None,
+[36m(TaskRunner pid=763384)[0m              'default_local_dir': 'checkpoints/qwen2.5-7b-grpo-hard-mcq',
+[36m(TaskRunner pid=763384)[0m              'del_local_ckpt_after_load': False,
+[36m(TaskRunner pid=763384)[0m              'experiment_name': 'qwen2.5-7b-grpo-mcq',
+[36m(TaskRunner pid=763384)[0m              'log_val_generations': 0,
+[36m(TaskRunner pid=763384)[0m              'logger': ['console', 'wandb'],
+[36m(TaskRunner pid=763384)[0m              'max_actor_ckpt_to_keep': None,
+[36m(TaskRunner pid=763384)[0m              'max_critic_ckpt_to_keep': None,
+[36m(TaskRunner pid=763384)[0m              'n_gpus_per_node': 8,
+[36m(TaskRunner pid=763384)[0m              'nnodes': 1,
+[36m(TaskRunner pid=763384)[0m              'project_name': 'Lawyer-Zero',
+[36m(TaskRunner pid=763384)[0m              'ray_wait_register_center_timeout': 300,
+[36m(TaskRunner pid=763384)[0m              'resume_from_path': None,
+[36m(TaskRunner pid=763384)[0m              'resume_mode': 'auto',
+[36m(TaskRunner pid=763384)[0m              'save_freq': 50,
+[36m(TaskRunner pid=763384)[0m              'test_freq': 10,
+[36m(TaskRunner pid=763384)[0m              'total_epochs': 2,
+[36m(TaskRunner pid=763384)[0m              'total_training_steps': None,
+[36m(TaskRunner pid=763384)[0m              'val_before_train': True}}
+[36m(TaskRunner pid=763384)[0m WARNING: val_batch_size is deprecated. Validation datasets are sent to inference engines as a whole batch, which will schedule the memory themselves.
+[36m(TaskRunner pid=763384)[0m [validate_config] All configuration checks passed successfully!
+[36m(TaskRunner pid=763384)[0m dataset len: 8448
+[36m(TaskRunner pid=763384)[0m dataset len: 2113
+[36m(TaskRunner pid=763384)[0m Size of train dataloader: 132
+[36m(TaskRunner pid=763384)[0m Total training steps: 264
+[36m(WorkerDict pid=773057)[0m Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:09,  3.04s/it]
+[36m(WorkerDict pid=773036)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.[32m [repeated 7x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(WorkerDict pid=773036)[0m Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=773057)[0m Loading checkpoint shards:  75%|███████▌  | 3/4 [00:09<00:02,  3.00s/it][32m [repeated 16x across cluster][0m
+[36m(WorkerDict pid=773057)[0m Loading checkpoint shards: 100%|██████████| 4/4 [00:11<00:00,  2.90s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:11<00:00,  2.94s/it]
+[36m(WorkerDict pid=773057)[0m [rank7]:[W423 03:40:06.437591103 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 7]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.
+[36m(WorkerDict pid=773057)[0m /home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(WorkerDict pid=773057)[0m   warnings.warn(
+[36m(WorkerDict pid=773036)[0m Loading checkpoint shards:  75%|███████▌  | 3/4 [00:09<00:03,  3.24s/it][32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=773036)[0m Loading checkpoint shards: 100%|██████████| 4/4 [00:12<00:00,  3.14s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:12<00:00,  3.19s/it][32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=773036)[0m [rank1]:[W423 03:40:08.810479744 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 1]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+[36m(TaskRunner pid=763384)[0m wandb: Currently logged in as: eang333cms (eang333cms-peking-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+[36m(TaskRunner pid=763384)[0m wandb: Tracking run with wandb version 0.19.9
+[36m(TaskRunner pid=763384)[0m wandb: Run data is saved locally in /home/wangyc/verl/wandb/run-20250423_034031-qqa2uagx
+[36m(TaskRunner pid=763384)[0m wandb: Run `wandb offline` to turn off syncing.
+[36m(TaskRunner pid=763384)[0m wandb: Syncing run qwen2.5-7b-grpo-mcq
+[36m(TaskRunner pid=763384)[0m wandb: ⭐️ View project at https://wandb.ai/eang333cms-peking-university/Lawyer-Zero
+[36m(TaskRunner pid=763384)[0m wandb: 🚀 View run at https://wandb.ai/eang333cms-peking-university/Lawyer-Zero/runs/qqa2uagx
+[36m(WorkerDict pid=766805)[0m Model config after override: Qwen2Config {
+[36m(WorkerDict pid=766805)[0m   "architectures": [
+[36m(WorkerDict pid=766805)[0m     "Qwen2ForCausalLM"
+[36m(WorkerDict pid=766805)[0m   ],
+[36m(WorkerDict pid=766805)[0m   "attention_dropout": 0.0,
+[36m(WorkerDict pid=766805)[0m   "eos_token_id": 151645,
+[36m(WorkerDict pid=766805)[0m   "hidden_act": "silu",
+[36m(WorkerDict pid=766805)[0m   "hidden_size": 3584,
+[36m(WorkerDict pid=766805)[0m   "initializer_range": 0.02,
+[36m(WorkerDict pid=766805)[0m   "intermediate_size": 18944,
+[36m(WorkerDict pid=766805)[0m   "max_position_embeddings": 32768,
+[36m(WorkerDict pid=766805)[0m   "max_window_layers": 28,
+[36m(WorkerDict pid=766805)[0m   "model_type": "qwen2",
+[36m(WorkerDict pid=766805)[0m   "num_attention_heads": 28,
+[36m(WorkerDict pid=766805)[0m   "num_hidden_layers": 28,
+[36m(WorkerDict pid=766805)[0m   "num_key_value_heads": 4,
+[36m(WorkerDict pid=766805)[0m   "pad_token_id": 151643,
+[36m(WorkerDict pid=766805)[0m   "rms_norm_eps": 1e-06,
+[36m(WorkerDict pid=766805)[0m   "rope_scaling": null,
+[36m(WorkerDict pid=766805)[0m   "rope_theta": 1000000.0,
+[36m(WorkerDict pid=766805)[0m   "sliding_window": 131072,
+[36m(WorkerDict pid=766805)[0m   "tie_word_embeddings": false,
+[36m(WorkerDict pid=766805)[0m   "torch_dtype": "bfloat16",
+[36m(WorkerDict pid=766805)[0m   "transformers_version": "4.51.3",
+[36m(WorkerDict pid=766805)[0m   "use_cache": true,
+[36m(WorkerDict pid=766805)[0m   "use_sliding_window": false,
+[36m(WorkerDict pid=766805)[0m   "vocab_size": 152064
+[36m(WorkerDict pid=766805)[0m }
+[36m(WorkerDict pid=766805)[0m 
+[36m(WorkerDict pid=773057)[0m Monkey patch _flash_attention_forward in transformers.integrations.flash_attention
+[36m(WorkerDict pid=766805)[0m NCCL version 2.21.5+cuda12.4
+[36m(WorkerDict pid=766805)[0m Qwen2ForCausalLM contains 7.62B parameters
+[36m(WorkerDict pid=766805)[0m wrap_policy: functools.partial(<function _or_policy at 0x7fad955e3ac0>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7fad955e39a0>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})])
+[36m(WorkerDict pid=773037)[0m Total steps: 264, num_warmup_steps: 0
+[36m(WorkerDict pid=773037)[0m Actor use_remove_padding=True
+[36m(WorkerDict pid=766805)[0m Before building vllm rollout, memory allocated (GB): 1.7850360870361328, memory reserved (GB): 8.94921875
+[36m(WorkerDict pid=773057)[0m WARNING 04-23 03:40:17 [cuda.py:96] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+[36m(WorkerDict pid=773036)[0m Monkey patch _flash_attention_forward in transformers.integrations.flash_attention[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=773056)[0m wrap_policy: functools.partial(<function _or_policy at 0x7ee617f1bac0>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7ee617f1b9a0>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})])[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m Total steps: 264, num_warmup_steps: 0[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m Actor use_remove_padding=True[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=773057)[0m WARNING 04-23 03:40:18 [utils.py:2413] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f470878abc0>
+[36m(WorkerDict pid=773037)[0m NCCL version 2.21.5+cuda12.4
+[36m(WorkerDict pid=773057)[0m kwargs: {'n': 6, 'logprobs': 0, 'max_tokens': 1024, 'detokenize': False, 'temperature': 1.0, 'top_k': -1, 'top_p': 1, 'ignore_eos': False}
+[36m(WorkerDict pid=766805)[0m WARNING 04-23 03:40:18 [cuda.py:96] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARNING 04-23 03:40:19 [utils.py:2413] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fac82778fa0>[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=773056)[0m NCCL version 2.21.5+cuda12.4[32m [repeated 2x across cluster][0m
+[36m(WorkerDict pid=766805)[0m After building vllm rollout, memory allocated (GB): 20.292081356048584, memory reserved (GB): 20.458984375
+[36m(WorkerDict pid=766805)[0m After building sharding manager, memory allocated (GB): 20.292081356048584, memory reserved (GB): 20.458984375
+[36m(TaskRunner pid=763384)[0m Using LocalLogger is deprecated. The constructor API will change 
+[36m(TaskRunner pid=763384)[0m Checkpoint tracker file does not exist: %s /home/wangyc/verl/checkpoints/qwen2.5-7b-grpo-hard-mcq/latest_checkpointed_iteration.txt
+[36m(TaskRunner pid=763384)[0m Training from scratch
+[36m(TaskRunner pid=763384)[0m test_gen_batch meta info: {'eos_token_id': 151645, 'pad_token_id': 151643, 'recompute_log_prob': False, 'do_sample': False, 'validate': True}
+[36m(WorkerDict pid=773046)[0m kwargs: {'n': 6, 'logprobs': 0, 'max_tokens': 1024, 'detokenize': False, 'temperature': 1.0, 'top_k': -1, 'top_p': 1, 'ignore_eos': False}[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m validation generation end
+[36m(TaskRunner pid=763384)[0m [prompt] system
+[36m(TaskRunner pid=763384)[0m 用户和助手之间的对话。用户提出一个问题，由助手来回答。助手首先在脑海中逐步思考推理过程，然后向用户提供答案。推理过程和答案分别用<思考> </思考>和<回答> </回答>标签括起来，即，<思考> 推理过程 </思考><回答> 答案 </回答>
+[36m(TaskRunner pid=763384)[0m user
+[36m(TaskRunner pid=763384)[0m 你是一名法学专家。现在请你解答司法考试中的一道选择题，请你找出所有正确的选项。每道题可能有一个或者多个正确答案。在解答之前，你需要先针对每个提供的选项给出详细的解释。你需要在回答的最后用大括号圈出给出的答案，例如"{B}"或者"{ABD}"。
+[36m(TaskRunner pid=763384)[0m 
+[36m(TaskRunner pid=763384)[0m 问题：甲某以为境外窃取、刺探、收买国家秘密的故意，乙以非法获取国家秘密的故意，共谋共同窃取、刺探、收买国家秘密，对于甲乙二人的行为的认定，下列正确的选项是:
+[36m(TaskRunner pid=763384)[0m 
+[36m(TaskRunner pid=763384)[0m 选项：
+[36m(TaskRunner pid=763384)[0m A: 甲与乙因故意不同，不成立共同犯罪
+[36m(TaskRunner pid=763384)[0m B: 甲与乙虽故意不同，仍在非法获取国家秘密罪的范围内成立共同犯罪
+[36m(TaskRunner pid=763384)[0m C: 对甲应以为境外窃取、刺探、收买国家秘密罪论处
+[36m(TaskRunner pid=763384)[0m D: 对乙以非法获取国家秘密罪论处
+[36m(TaskRunner pid=763384)[0m assistant
+[36m(TaskRunner pid=763384)[0m 
+[36m(TaskRunner pid=763384)[0m [response] <思考> 本题考查共同犯罪的认定。根据我国刑法，共同犯罪是指二人以上共同故意犯罪。共同犯罪的成立需要满足共同的犯罪故意和共同的犯罪行为。甲某以为境外窃取、刺探、收买国家秘密的故意，乙以非法获取国家秘密的故意，虽然两人的故意不同，但都具有窃取、刺探、收买国家秘密的行为，因此在非法获取国家秘密罪的范围内成立共同犯罪。甲某的行为符合以境外窃取、刺探、收买国家秘密罪的构成要件，乙的行为符合非法获取国家秘密罪的构成要件。因此，选项B和C、D都是正确的。
+[36m(TaskRunner pid=763384)[0m </思考><回答> 选项B、C、D都是正确的。{BCD}
+[36m(TaskRunner pid=763384)[0m [ground_truth] ['B', 'C', 'D']
+[36m(TaskRunner pid=763384)[0m [score] 1.0
+[36m(TaskRunner pid=763384)[0m Training Progress:   0%|          | 0/264 [00:00<?, ?it/s]
+[36m(WorkerDict pid=773046)[0m /home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=773046)[0m   warnings.warn([32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m Training Progress:   0%|          | 1/264 [00:46<3:25:32, 46.89s/it]
+[36m(TaskRunner pid=763384)[0m Training Progress:   1%|          | 2/264 [01:53<4:16:16, 58.69s/it]
+[36m(TaskRunner pid=763384)[0m Training Progress:   1%|          | 3/264 [03:01<4:33:30, 62.88s/it]
+[36m(TaskRunner pid=763384)[0m [extra_info] {'format_reward': 0.0, 'answer_reward': 1.0}
+[36m(TaskRunner pid=763384)[0m ("Initial validation metrics: {'val-core/jec-qa-1-multi-choice/reward/mean@1': "
+[36m(TaskRunner pid=763384)[0m  'np.float64(1.0269758637008992), '
+[36m(TaskRunner pid=763384)[0m  "'val-aux/jec-qa-1-multi-choice/reward/std@1': np.float64(0.0), "
+[36m(TaskRunner pid=763384)[0m  "'val-core/jec-qa-1-multi-choice/reward/best@1/mean': "
+[36m(TaskRunner pid=763384)[0m  'np.float64(1.0269758637008992), '
+[36m(TaskRunner pid=763384)[0m  "'val-core/jec-qa-1-multi-choice/reward/best@1/std': np.float64(0.0), "
+[36m(TaskRunner pid=763384)[0m  "'val-aux/jec-qa-1-multi-choice/reward/worst@1/mean': "
+[36m(TaskRunner pid=763384)[0m  'np.float64(1.0269758637008992), '
+[36m(TaskRunner pid=763384)[0m  "'val-aux/jec-qa-1-multi-choice/reward/worst@1/std': np.float64(0.0), "
+[36m(TaskRunner pid=763384)[0m  "'val-aux/jec-qa-1-multi-choice/score/mean@1': "
+[36m(TaskRunner pid=763384)[0m  "np.float64(1.0269758637008992), 'val-aux/jec-qa-1-multi-choice/score/std@1': "
+[36m(TaskRunner pid=763384)[0m  "np.float64(0.0), 'val-aux/jec-qa-1-multi-choice/score/best@1/mean': "
+[36m(TaskRunner pid=763384)[0m  'np.float64(1.0269758637008992), '
+[36m(TaskRunner pid=763384)[0m  "'val-aux/jec-qa-1-multi-choice/score/best@1/std': np.float64(0.0), "
+[36m(TaskRunner pid=763384)[0m  "'val-aux/jec-qa-1-multi-choice/score/worst@1/mean': "
+[36m(TaskRunner pid=763384)[0m  'np.float64(1.0269758637008992), '
+[36m(TaskRunner pid=763384)[0m  "'val-aux/jec-qa-1-multi-choice/score/worst@1/std': np.float64(0.0), "
+[36m(TaskRunner pid=763384)[0m  "'val-aux/jec-qa-1-multi-choice/extra_info/score@1': np.float64(0.0), "
+[36m(TaskRunner pid=763384)[0m  "'val-aux/jec-qa-1-multi-choice/extra_info/score/std@1': np.float64(0.0)}")
+[36m(TaskRunner pid=763384)[0m step:0 - val-core/jec-qa-1-multi-choice/reward/mean@1:1.027 - val-aux/jec-qa-1-multi-choice/reward/std@1:0.000 - val-core/jec-qa-1-multi-choice/reward/best@1/mean:1.027 - val-core/jec-qa-1-multi-choice/reward/best@1/std:0.000 - val-aux/jec-qa-1-multi-choice/reward/worst@1/mean:1.027 - val-aux/jec-qa-1-multi-choice/reward/worst@1/std:0.000 - val-aux/jec-qa-1-multi-choice/score/mean@1:1.027 - val-aux/jec-qa-1-multi-choice/score/std@1:0.000 - val-aux/jec-qa-1-multi-choice/score/best@1/mean:1.027 - val-aux/jec-qa-1-multi-choice/score/best@1/std:0.000 - val-aux/jec-qa-1-multi-choice/score/worst@1/mean:1.027 - val-aux/jec-qa-1-multi-choice/score/worst@1/std:0.000 - val-aux/jec-qa-1-multi-choice/extra_info/score@1:0.000 - val-aux/jec-qa-1-multi-choice/extra_info/score/std@1:0.000
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(TaskRunner pid=763384)[0m step:1 - global_seqlen/min:28746.000 - global_seqlen/max:30700.000 - global_seqlen/minmax_diff:1954.000 - global_seqlen/balanced_min:30022.000 - global_seqlen/balanced_max:30023.000 - global_seqlen/mean:30022.625 - actor/entropy_loss:1.168 - actor/pg_loss:nan - actor/pg_clipfrac:0.001 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.335 - perf/max_memory_allocated_gb:39.360 - perf/max_memory_reserved_gb:44.865 - perf/cpu_memory_used_gb:53.143 - actor/lr:0.000 - critic/score/mean:0.951 - critic/score/max:2.000 - critic/score/min:0.000 - critic/rewards/mean:0.951 - critic/rewards/max:2.000 - critic/rewards/min:0.000 - critic/advantages/mean:-0.022 - critic/advantages/max:2.041 - critic/advantages/min:-1.927 - critic/returns/mean:-0.022 - critic/returns/max:2.041 - critic/returns/min:-1.927 - response_length/mean:314.971 - response_length/max:694.000 - response_length/min:127.000 - response_length/clip_ratio:0.000 - prompt_length/mean:310.500 - prompt_length/max:427.000 - prompt_length/min:213.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:18.274 - timing_s/old_log_prob:4.433 - timing_s/adv:0.172 - timing_s/update_actor:23.703 - timing_s/step:46.596 - timing_per_token_ms/gen:0.151 - timing_per_token_ms/adv:0.001 - timing_per_token_ms/update_actor:0.099 - perf/total_num_tokens:240181.000 - perf/time_per_step:46.596 - perf/throughput:644.319
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m step:2 - global_seqlen/min:62208.000 - global_seqlen/max:65334.000 - global_seqlen/minmax_diff:3126.000 - global_seqlen/balanced_min:63457.000 - global_seqlen/balanced_max:63458.000 - global_seqlen/mean:63457.500 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.560 - perf/max_memory_allocated_gb:54.414 - perf/max_memory_reserved_gb:61.256 - perf/cpu_memory_used_gb:51.500 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:298.031 - prompt_length/max:471.000 - prompt_length/min:209.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.180 - timing_s/old_log_prob:6.278 - timing_s/adv:0.193 - timing_s/update_actor:30.252 - timing_s/step:66.915 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.060 - perf/total_num_tokens:507660.000 - perf/time_per_step:66.915 - perf/throughput:948.333
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m step:3 - global_seqlen/min:62814.000 - global_seqlen/max:65628.000 - global_seqlen/minmax_diff:2814.000 - global_seqlen/balanced_min:63993.000 - global_seqlen/balanced_max:63993.000 - global_seqlen/mean:63993.000 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.551 - perf/max_memory_allocated_gb:54.770 - perf/max_memory_reserved_gb:61.705 - perf/cpu_memory_used_gb:51.540 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:309.188 - prompt_length/max:446.000 - prompt_length/min:210.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.274 - timing_s/old_log_prob:6.392 - timing_s/adv:0.196 - timing_s/update_actor:30.952 - timing_s/step:67.830 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.060 - perf/total_num_tokens:511944.000 - perf/time_per_step:67.830 - perf/throughput:943.426
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(TaskRunner pid=763384)[0m Training Progress:   2%|▏         | 4/264 [04:09<4:40:46, 64.79s/it]
+[36m(TaskRunner pid=763384)[0m Training Progress:   2%|▏         | 5/264 [05:17<4:44:13, 65.84s/it]
+[36m(TaskRunner pid=763384)[0m Training Progress:   2%|▏         | 6/264 [06:24<4:45:23, 66.37s/it]
+[36m(TaskRunner pid=763384)[0m Training Progress:   3%|▎         | 7/264 [07:32<4:46:17, 66.84s/it]
+[36m(TaskRunner pid=763384)[0m Training Progress:   3%|▎         | 8/264 [08:40<4:46:32, 67.16s/it]
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m step:4 - global_seqlen/min:62442.000 - global_seqlen/max:64596.000 - global_seqlen/minmax_diff:2154.000 - global_seqlen/balanced_min:63608.000 - global_seqlen/balanced_max:63609.000 - global_seqlen/mean:63608.250 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.549 - perf/max_memory_allocated_gb:54.770 - perf/max_memory_reserved_gb:61.846 - perf/cpu_memory_used_gb:51.475 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:301.172 - prompt_length/max:521.000 - prompt_length/min:210.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.257 - timing_s/old_log_prob:6.376 - timing_s/adv:0.199 - timing_s/update_actor:30.860 - timing_s/step:67.706 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.061 - perf/total_num_tokens:508866.000 - perf/time_per_step:67.706 - perf/throughput:939.477
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m step:5 - global_seqlen/min:63210.000 - global_seqlen/max:64662.000 - global_seqlen/minmax_diff:1452.000 - global_seqlen/balanced_min:63813.000 - global_seqlen/balanced_max:63814.000 - global_seqlen/mean:63813.750 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.551 - perf/max_memory_allocated_gb:54.770 - perf/max_memory_reserved_gb:61.846 - perf/cpu_memory_used_gb:51.589 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:305.453 - prompt_length/max:491.000 - prompt_length/min:208.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.209 - timing_s/old_log_prob:6.392 - timing_s/adv:0.196 - timing_s/update_actor:30.866 - timing_s/step:67.677 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.060 - perf/total_num_tokens:510510.000 - perf/time_per_step:67.677 - perf/throughput:942.916
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m step:6 - global_seqlen/min:61968.000 - global_seqlen/max:64896.000 - global_seqlen/minmax_diff:2928.000 - global_seqlen/balanced_min:63522.000 - global_seqlen/balanced_max:63522.000 - global_seqlen/mean:63522.000 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.552 - perf/max_memory_allocated_gb:54.770 - perf/max_memory_reserved_gb:61.854 - perf/cpu_memory_used_gb:51.720 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:299.375 - prompt_length/max:438.000 - prompt_length/min:211.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.299 - timing_s/old_log_prob:6.302 - timing_s/adv:0.195 - timing_s/update_actor:30.567 - timing_s/step:67.377 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.060 - perf/total_num_tokens:508176.000 - perf/time_per_step:67.377 - perf/throughput:942.779
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m step:7 - global_seqlen/min:62202.000 - global_seqlen/max:64656.000 - global_seqlen/minmax_diff:2454.000 - global_seqlen/balanced_min:63666.000 - global_seqlen/balanced_max:63667.000 - global_seqlen/mean:63666.750 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.546 - perf/max_memory_allocated_gb:55.054 - perf/max_memory_reserved_gb:61.854 - perf/cpu_memory_used_gb:51.689 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:302.391 - prompt_length/max:513.000 - prompt_length/min:210.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.266 - timing_s/old_log_prob:6.305 - timing_s/adv:0.193 - timing_s/update_actor:31.004 - timing_s/step:67.781 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.061 - perf/total_num_tokens:509334.000 - perf/time_per_step:67.781 - perf/throughput:939.300
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m Training Progress:   3%|▎         | 9/264 [09:47<4:45:55, 67.28s/it]
+[36m(TaskRunner pid=763384)[0m Training Progress:   4%|▍         | 10/264 [14:08<8:57:25, 126.95s/it]
+[36m(TaskRunner pid=763384)[0m step:8 - global_seqlen/min:63252.000 - global_seqlen/max:64482.000 - global_seqlen/minmax_diff:1230.000 - global_seqlen/balanced_min:63978.000 - global_seqlen/balanced_max:63978.000 - global_seqlen/mean:63978.000 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.550 - perf/max_memory_allocated_gb:55.054 - perf/max_memory_reserved_gb:61.854 - perf/cpu_memory_used_gb:51.796 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:308.875 - prompt_length/max:498.000 - prompt_length/min:213.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.325 - timing_s/old_log_prob:6.320 - timing_s/adv:0.194 - timing_s/update_actor:30.976 - timing_s/step:67.826 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.061 - perf/total_num_tokens:511824.000 - perf/time_per_step:67.826 - perf/throughput:943.272
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m step:9 - global_seqlen/min:63414.000 - global_seqlen/max:65928.000 - global_seqlen/minmax_diff:2514.000 - global_seqlen/balanced_min:64485.000 - global_seqlen/balanced_max:64486.000 - global_seqlen/mean:64485.750 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.558 - perf/max_memory_allocated_gb:55.235 - perf/max_memory_reserved_gb:61.854 - perf/cpu_memory_used_gb:51.735 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:319.453 - prompt_length/max:499.000 - prompt_length/min:227.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.185 - timing_s/old_log_prob:6.395 - timing_s/adv:0.189 - timing_s/update_actor:30.742 - timing_s/step:67.524 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.060 - perf/total_num_tokens:515886.000 - perf/time_per_step:67.524 - perf/throughput:955.005
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m test_gen_batch meta info: {'eos_token_id': 151645, 'pad_token_id': 151643, 'recompute_log_prob': False, 'do_sample': False, 'validate': True}
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m validation generation end
+[36m(TaskRunner pid=763384)[0m [prompt] system
+[36m(TaskRunner pid=763384)[0m 用户和助手之间的对话。用户提出一个问题，由助手来回答。助手首先在脑海中逐步思考推理过程，然后向用户提供答案。推理过程和答案分别用<思考> </思考>和<回答> </回答>标签括起来，即，<思考> 推理过程 </思考><回答> 答案 </回答>
+[36m(TaskRunner pid=763384)[0m user
+[36m(TaskRunner pid=763384)[0m 你是一名法学专家。现在请你解答司法考试中的一道选择题，请你找出所有正确的选项。每道题可能有一个或者多个正确答案。在解答之前，你需要先针对每个提供的选项给出详细的解释。你需要在回答的最后用大括号圈出给出的答案，例如"{B}"或者"{ABD}"。
+[36m(TaskRunner pid=763384)[0m 
+[36m(TaskRunner pid=763384)[0m 问题：甲某以为境外窃取、刺探、收买国家秘密的故意，乙以非法获取国家秘密的故意，共谋共同窃取、刺探、收买国家秘密，对于甲乙二人的行为的认定，下列正确的选项是:
+[36m(TaskRunner pid=763384)[0m 
+[36m(TaskRunner pid=763384)[0m 选项：
+[36m(TaskRunner pid=763384)[0m A: 甲与乙因故意不同，不成立共同犯罪
+[36m(TaskRunner pid=763384)[0m B: 甲与乙虽故意不同，仍在非法获取国家秘密罪的范围内成立共同犯罪
+[36m(TaskRunner pid=763384)[0m C: 对甲应以为境外窃取、刺探、收买国家秘密罪论处
+[36m(TaskRunner pid=763384)[0m D: 对乙以非法获取国家秘密罪论处
+[36m(TaskRunner pid=763384)[0m assistant
+[36m(TaskRunner pid=763384)[0m 
+[36m(TaskRunner pid=763384)[0m [response] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[36m(TaskRunner pid=763384)[0m [ground_truth] ['B', 'C', 'D']
+[36m(TaskRunner pid=763384)[0m [score] 0.0
+[36m(TaskRunner pid=763384)[0m [extra_info] {'format_reward': 0.0, 'answer_reward': 0.0}
+[36m(TaskRunner pid=763384)[0m Training Progress:   4%|▍         | 11/264 [15:16<7:39:07, 108.88s/it]
+[36m(TaskRunner pid=763384)[0m Training Progress:   5%|▍         | 12/264 [16:23<6:44:28, 96.30s/it] 
+[36m(TaskRunner pid=763384)[0m Training Progress:   5%|▍         | 13/264 [17:31<6:07:05, 87.75s/it]
+[36m(TaskRunner pid=763384)[0m Training Progress:   5%|▌         | 14/264 [18:39<5:39:56, 81.59s/it]
+[36m(TaskRunner pid=763384)[0m step:10 - global_seqlen/min:62106.000 - global_seqlen/max:64230.000 - global_seqlen/minmax_diff:2124.000 - global_seqlen/balanced_min:63402.000 - global_seqlen/balanced_max:63402.000 - global_seqlen/mean:63402.000 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.551 - perf/max_memory_allocated_gb:55.235 - perf/max_memory_reserved_gb:62.025 - perf/cpu_memory_used_gb:51.625 - actor/lr:0.000 - val-core/jec-qa-1-multi-choice/reward/mean@1:0.000 - val-aux/jec-qa-1-multi-choice/reward/std@1:0.000 - val-core/jec-qa-1-multi-choice/reward/best@1/mean:0.000 - val-core/jec-qa-1-multi-choice/reward/best@1/std:0.000 - val-aux/jec-qa-1-multi-choice/reward/worst@1/mean:0.000 - val-aux/jec-qa-1-multi-choice/reward/worst@1/std:0.000 - val-aux/jec-qa-1-multi-choice/score/mean@1:0.000 - val-aux/jec-qa-1-multi-choice/score/std@1:0.000 - val-aux/jec-qa-1-multi-choice/score/best@1/mean:0.000 - val-aux/jec-qa-1-multi-choice/score/best@1/std:0.000 - val-aux/jec-qa-1-multi-choice/score/worst@1/mean:0.000 - val-aux/jec-qa-1-multi-choice/score/worst@1/std:0.000 - val-aux/jec-qa-1-multi-choice/extra_info/score@1:0.000 - val-aux/jec-qa-1-multi-choice/extra_info/score/std@1:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:296.875 - prompt_length/max:498.000 - prompt_length/min:228.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.165 - timing_s/old_log_prob:6.294 - timing_s/adv:0.186 - timing_s/update_actor:30.584 - timing_s/testing:193.312 - timing_s/step:260.556 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.060 - perf/total_num_tokens:507216.000 - perf/time_per_step:260.556 - perf/throughput:243.334
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 8x across cluster][0m
+[36m(TaskRunner pid=763384)[0m step:11 - global_seqlen/min:63648.000 - global_seqlen/max:65166.000 - global_seqlen/minmax_diff:1518.000 - global_seqlen/balanced_min:64506.000 - global_seqlen/balanced_max:64507.000 - global_seqlen/mean:64506.750 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.552 - perf/max_memory_allocated_gb:55.235 - perf/max_memory_reserved_gb:62.025 - perf/cpu_memory_used_gb:52.218 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:319.891 - prompt_length/max:547.000 - prompt_length/min:212.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.160 - timing_s/old_log_prob:6.419 - timing_s/adv:0.199 - timing_s/update_actor:31.093 - timing_s/step:67.885 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.060 - perf/total_num_tokens:516054.000 - perf/time_per_step:67.885 - perf/throughput:950.241
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m step:12 - global_seqlen/min:63246.000 - global_seqlen/max:64224.000 - global_seqlen/minmax_diff:978.000 - global_seqlen/balanced_min:63779.000 - global_seqlen/balanced_max:63780.000 - global_seqlen/mean:63779.250 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.553 - perf/max_memory_allocated_gb:55.235 - perf/max_memory_reserved_gb:62.025 - perf/cpu_memory_used_gb:52.079 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:304.734 - prompt_length/max:485.000 - prompt_length/min:205.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.298 - timing_s/old_log_prob:6.339 - timing_s/adv:0.192 - timing_s/update_actor:30.659 - timing_s/step:67.504 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.060 - perf/total_num_tokens:510234.000 - perf/time_per_step:67.504 - perf/throughput:944.825
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m step:13 - global_seqlen/min:63228.000 - global_seqlen/max:65910.000 - global_seqlen/minmax_diff:2682.000 - global_seqlen/balanced_min:64143.000 - global_seqlen/balanced_max:64143.000 - global_seqlen/mean:64143.000 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.548 - perf/max_memory_allocated_gb:55.235 - perf/max_memory_reserved_gb:62.025 - perf/cpu_memory_used_gb:52.059 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:312.312 - prompt_length/max:505.000 - prompt_length/min:213.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.308 - timing_s/old_log_prob:6.393 - timing_s/adv:0.199 - timing_s/update_actor:31.135 - timing_s/step:68.049 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.061 - perf/total_num_tokens:513144.000 - perf/time_per_step:68.049 - perf/throughput:942.601
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m Training Progress:   6%|▌         | 15/264 [19:46<5:20:32, 77.24s/it]
+[36m(TaskRunner pid=763384)[0m Training Progress:   6%|▌         | 16/264 [20:54<5:08:16, 74.58s/it]
+[36m(TaskRunner pid=763384)[0m Training Progress:   6%|▋         | 17/264 [22:02<4:58:29, 72.51s/it]
+[36m(TaskRunner pid=763384)[0m Training Progress:   7%|▋         | 18/264 [23:10<4:52:26, 71.33s/it]
+[36m(TaskRunner pid=763384)[0m step:14 - global_seqlen/min:62778.000 - global_seqlen/max:64884.000 - global_seqlen/minmax_diff:2106.000 - global_seqlen/balanced_min:63918.000 - global_seqlen/balanced_max:63918.000 - global_seqlen/mean:63918.000 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.557 - perf/max_memory_allocated_gb:55.235 - perf/max_memory_reserved_gb:62.025 - perf/cpu_memory_used_gb:52.155 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:307.625 - prompt_length/max:487.000 - prompt_length/min:216.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.256 - timing_s/old_log_prob:6.322 - timing_s/adv:0.197 - timing_s/update_actor:30.541 - timing_s/step:67.330 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.060 - perf/total_num_tokens:511344.000 - perf/time_per_step:67.330 - perf/throughput:949.323
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m step:15 - global_seqlen/min:62250.000 - global_seqlen/max:64212.000 - global_seqlen/minmax_diff:1962.000 - global_seqlen/balanced_min:63390.000 - global_seqlen/balanced_max:63391.000 - global_seqlen/mean:63390.750 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.555 - perf/max_memory_allocated_gb:55.235 - perf/max_memory_reserved_gb:62.025 - perf/cpu_memory_used_gb:52.135 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:296.641 - prompt_length/max:386.000 - prompt_length/min:209.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.273 - timing_s/old_log_prob:6.314 - timing_s/adv:0.200 - timing_s/update_actor:30.345 - timing_s/step:67.144 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.060 - perf/total_num_tokens:507126.000 - perf/time_per_step:67.144 - perf/throughput:944.105
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m step:16 - global_seqlen/min:63150.000 - global_seqlen/max:64668.000 - global_seqlen/minmax_diff:1518.000 - global_seqlen/balanced_min:63774.000 - global_seqlen/balanced_max:63775.000 - global_seqlen/mean:63774.750 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.547 - perf/max_memory_allocated_gb:55.235 - perf/max_memory_reserved_gb:62.025 - perf/cpu_memory_used_gb:52.041 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:304.641 - prompt_length/max:446.000 - prompt_length/min:200.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.864 - timing_s/old_log_prob:6.328 - timing_s/adv:0.197 - timing_s/update_actor:30.987 - timing_s/step:68.388 - timing_per_token_ms/gen:0.078 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.061 - perf/total_num_tokens:510198.000 - perf/time_per_step:68.388 - perf/throughput:932.537
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m step:17 - global_seqlen/min:63264.000 - global_seqlen/max:64242.000 - global_seqlen/minmax_diff:978.000 - global_seqlen/balanced_min:63753.000 - global_seqlen/balanced_max:63753.000 - global_seqlen/mean:63753.000 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.556 - perf/max_memory_allocated_gb:55.235 - perf/max_memory_reserved_gb:62.025 - perf/cpu_memory_used_gb:52.062 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:304.188 - prompt_length/max:442.000 - prompt_length/min:220.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.599 - timing_s/old_log_prob:6.340 - timing_s/adv:0.197 - timing_s/update_actor:30.508 - timing_s/step:67.657 - timing_per_token_ms/gen:0.078 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.060 - perf/total_num_tokens:510024.000 - perf/time_per_step:67.657 - perf/throughput:942.295
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m Training Progress:   7%|▋         | 19/264 [24:19<4:47:33, 70.42s/it]
+[36m(WorkerDict pid=773037)[0m /home/wangyc/miniconda3/envs/verl/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked shared_memory objects to clean up at shutdown
+[36m(WorkerDict pid=773037)[0m   warnings.warn('resource_tracker: There appear to be %d '
+[36m(TaskRunner pid=763384)[0m Training Progress:   8%|▊         | 20/264 [28:41<8:40:49, 128.07s/it]
+[36m(WorkerDict pid=773043)[0m /home/wangyc/miniconda3/envs/verl/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked shared_memory objects to clean up at shutdown[32m [repeated 3x across cluster][0m
+[36m(WorkerDict pid=773043)[0m   warnings.warn('resource_tracker: There appear to be %d '[32m [repeated 3x across cluster][0m
+[36m(TaskRunner pid=763384)[0m step:18 - global_seqlen/min:64224.000 - global_seqlen/max:65382.000 - global_seqlen/minmax_diff:1158.000 - global_seqlen/balanced_min:64824.000 - global_seqlen/balanced_max:64825.000 - global_seqlen/mean:64824.750 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.546 - perf/max_memory_allocated_gb:55.370 - perf/max_memory_reserved_gb:62.100 - perf/cpu_memory_used_gb:52.147 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:326.516 - prompt_length/max:514.000 - prompt_length/min:225.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.318 - timing_s/old_log_prob:6.448 - timing_s/adv:0.196 - timing_s/update_actor:31.573 - timing_s/step:68.551 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.061 - perf/total_num_tokens:518598.000 - perf/time_per_step:68.551 - perf/throughput:945.644
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m step:19 - global_seqlen/min:63066.000 - global_seqlen/max:67224.000 - global_seqlen/minmax_diff:4158.000 - global_seqlen/balanced_min:64583.000 - global_seqlen/balanced_max:64584.000 - global_seqlen/mean:64583.250 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.548 - perf/max_memory_allocated_gb:55.370 - perf/max_memory_reserved_gb:62.256 - perf/cpu_memory_used_gb:52.128 - actor/lr:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:321.484 - prompt_length/max:544.000 - prompt_length/min:204.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.296 - timing_s/old_log_prob:6.452 - timing_s/adv:0.198 - timing_s/update_actor:31.328 - timing_s/step:68.285 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.061 - perf/total_num_tokens:516666.000 - perf/time_per_step:68.285 - perf/throughput:945.783
+[36m(TaskRunner pid=763384)[0m list(reward_extra_infos_dict.keys())=['score', 'extra_info']
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=773037)[0m WARN: grad_norm is not finite: nan
+[36m(WorkerDict pid=766805)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m test_gen_batch meta info: {'eos_token_id': 151645, 'pad_token_id': 151643, 'recompute_log_prob': False, 'do_sample': False, 'validate': True}
+[36m(WorkerDict pid=773056)[0m WARN: grad_norm is not finite: nan[32m [repeated 7x across cluster][0m
+[36m(TaskRunner pid=763384)[0m validation generation end
+[36m(TaskRunner pid=763384)[0m [prompt] system
+[36m(TaskRunner pid=763384)[0m 用户和助手之间的对话。用户提出一个问题，由助手来回答。助手首先在脑海中逐步思考推理过程，然后向用户提供答案。推理过程和答案分别用<思考> </思考>和<回答> </回答>标签括起来，即，<思考> 推理过程 </思考><回答> 答案 </回答>
+[36m(TaskRunner pid=763384)[0m user
+[36m(TaskRunner pid=763384)[0m 你是一名法学专家。现在请你解答司法考试中的一道选择题，请你找出所有正确的选项。每道题可能有一个或者多个正确答案。在解答之前，你需要先针对每个提供的选项给出详细的解释。你需要在回答的最后用大括号圈出给出的答案，例如"{B}"或者"{ABD}"。
+[36m(TaskRunner pid=763384)[0m 
+[36m(TaskRunner pid=763384)[0m 问题：甲某以为境外窃取、刺探、收买国家秘密的故意，乙以非法获取国家秘密的故意，共谋共同窃取、刺探、收买国家秘密，对于甲乙二人的行为的认定，下列正确的选项是:
+[36m(TaskRunner pid=763384)[0m 
+[36m(TaskRunner pid=763384)[0m 选项：
+[36m(TaskRunner pid=763384)[0m A: 甲与乙因故意不同，不成立共同犯罪
+[36m(TaskRunner pid=763384)[0m B: 甲与乙虽故意不同，仍在非法获取国家秘密罪的范围内成立共同犯罪
+[36m(TaskRunner pid=763384)[0m C: 对甲应以为境外窃取、刺探、收买国家秘密罪论处
+[36m(TaskRunner pid=763384)[0m D: 对乙以非法获取国家秘密罪论处
+[36m(TaskRunner pid=763384)[0m assistant
+[36m(TaskRunner pid=763384)[0m 
+[36m(TaskRunner pid=763384)[0m [response] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[36m(TaskRunner pid=763384)[0m [ground_truth] ['B', 'C', 'D']
+[36m(TaskRunner pid=763384)[0m [score] 0.0
+[36m(TaskRunner pid=763384)[0m [extra_info] {'format_reward': 0.0, 'answer_reward': 0.0}
+[33m(raylet)[0m A worker died or was killed while executing a task by an unexpected system error. To troubleshoot the problem, check the logs for the dead worker. RayTask ID: ffffffffffffffffb0b8038a6efa859aae18a3fe01000000 Worker ID: 258aa9779ee9cca84a3d943f713fd64c549fbe14a832b4ed0cfe12a0 Node ID: d8e8ad7ad55058fcb842b914a63e04e1c1028bc8d03bc5f71b58e0bc Worker IP address: 222.29.51.203 Worker port: 34263 Worker PID: 773057 Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[36m(TaskRunner pid=763384)[0m step:20 - global_seqlen/min:63522.000 - global_seqlen/max:65394.000 - global_seqlen/minmax_diff:1872.000 - global_seqlen/balanced_min:64406.000 - global_seqlen/balanced_max:64407.000 - global_seqlen/mean:64406.250 - actor/entropy_loss:nan - actor/pg_loss:nan - actor/pg_clipfrac:0.000 - actor/ppo_kl:nan - actor/pg_clipfrac_lower:0.000 - actor/grad_norm:nan - perf/mfu/actor:0.545 - perf/max_memory_allocated_gb:55.370 - perf/max_memory_reserved_gb:62.271 - perf/cpu_memory_used_gb:52.129 - actor/lr:0.000 - val-core/jec-qa-1-multi-choice/reward/mean@1:0.000 - val-aux/jec-qa-1-multi-choice/reward/std@1:0.000 - val-core/jec-qa-1-multi-choice/reward/best@1/mean:0.000 - val-core/jec-qa-1-multi-choice/reward/best@1/std:0.000 - val-aux/jec-qa-1-multi-choice/reward/worst@1/mean:0.000 - val-aux/jec-qa-1-multi-choice/reward/worst@1/std:0.000 - val-aux/jec-qa-1-multi-choice/score/mean@1:0.000 - val-aux/jec-qa-1-multi-choice/score/std@1:0.000 - val-aux/jec-qa-1-multi-choice/score/best@1/mean:0.000 - val-aux/jec-qa-1-multi-choice/score/best@1/std:0.000 - val-aux/jec-qa-1-multi-choice/score/worst@1/mean:0.000 - val-aux/jec-qa-1-multi-choice/score/worst@1/std:0.000 - val-aux/jec-qa-1-multi-choice/extra_info/score@1:0.000 - val-aux/jec-qa-1-multi-choice/extra_info/score/std@1:0.000 - critic/score/mean:0.000 - critic/score/max:0.000 - critic/score/min:0.000 - critic/rewards/mean:0.000 - critic/rewards/max:0.000 - critic/rewards/min:0.000 - critic/advantages/mean:0.000 - critic/advantages/max:0.000 - critic/advantages/min:0.000 - critic/returns/mean:0.000 - critic/returns/max:0.000 - critic/returns/min:0.000 - response_length/mean:1024.000 - response_length/max:1024.000 - response_length/min:1024.000 - response_length/clip_ratio:1.000 - prompt_length/mean:317.797 - prompt_length/max:640.000 - prompt_length/min:240.000 - prompt_length/clip_ratio:0.000 - timing_s/gen:30.370 - timing_s/old_log_prob:6.494 - timing_s/adv:0.196 - timing_s/update_actor:31.428 - timing_s/testing:193.917 - timing_s/step:262.419 - timing_per_token_ms/gen:0.077 - timing_per_token_ms/adv:0.000 - timing_per_token_ms/update_actor:0.061 - perf/total_num_tokens:515250.000 - perf/time_per_step:262.419 - perf/throughput:245.433
+[33m(raylet)[0m A worker died or was killed while executing a task by an unexpected system error. To troubleshoot the problem, check the logs for the dead worker. RayTask ID: ffffffffffffffff3bece742ff6ba305c2be072901000000 Worker ID: 05e58eaa9cf6fc4f482ebb4fc726a6fc6d7abbf9871c2980ccb22e73 Node ID: d8e8ad7ad55058fcb842b914a63e04e1c1028bc8d03bc5f71b58e0bc Worker IP address: 222.29.51.203 Worker port: 46181 Worker PID: 773046 Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.[32m [repeated 7x across cluster][0m
+Error executing job with overrides: ['algorithm.adv_estimator=grpo', 'data.train_files=/home/wangyc/verl/data/jec-qa-1-multi-choice/train.parquet', 'data.val_files=/home/wangyc/verl/data/jec-qa-1-multi-choice/test.parquet', 'data.train_batch_size=64', 'data.val_batch_size=1312', 'data.max_prompt_length=1024', 'data.max_response_length=1024', 'actor_rollout_ref.model.path=/home/wangyc/verl/Qwen/Qwen2___5-7B-Instruct', 'actor_rollout_ref.actor.optim.lr=1e-6', 'actor_rollout_ref.model.use_remove_padding=True', 'actor_rollout_ref.actor.ppo_mini_batch_size=32', 'actor_rollout_ref.actor.ppo_micro_batch_size_per_gpu=16', 'actor_rollout_ref.actor.use_kl_loss=False', 'actor_rollout_ref.model.enable_gradient_checkpointing=True', 'actor_rollout_ref.actor.fsdp_config.param_offload=True', 'actor_rollout_ref.actor.fsdp_config.optimizer_offload=False', 'actor_rollout_ref.rollout.log_prob_micro_batch_size_per_gpu=32', 'actor_rollout_ref.rollout.tensor_model_parallel_size=2', 'actor_rollout_ref.rollout.name=vllm', 'actor_rollout_ref.rollout.gpu_memory_utilization=0.6', 'actor_rollout_ref.rollout.n=6', 'actor_rollout_ref.ref.log_prob_micro_batch_size_per_gpu=32', 'actor_rollout_ref.ref.fsdp_config.param_offload=True', 'algorithm.kl_ctrl.kl_coef=0.0', 'trainer.critic_warmup=0', "trainer.logger=['console', 'wandb']", 'trainer.project_name=Lawyer-Zero', 'trainer.experiment_name=qwen2.5-7b-grpo-mcq', 'trainer.n_gpus_per_node=8', 'trainer.nnodes=1', 'trainer.default_local_dir=checkpoints/qwen2.5-7b-grpo-hard-mcq', 'trainer.save_freq=50', 'trainer.test_freq=10', 'trainer.total_epochs=2', '+actor_rollout_ref.actor.fsdp_config.model_dtype=float16']
+Traceback (most recent call last):
+  File "/home/wangyc/verl/verl/trainer/main_ppo.py", line 63, in main
+    run_ppo(config)
+  File "/home/wangyc/verl/verl/trainer/main_ppo.py", line 80, in run_ppo
+    ray.get(runner.run.remote(config))
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/ray/_private/worker.py", line 2771, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/ray/_private/worker.py", line 919, in get_objects
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(ActorDiedError): [36mray::TaskRunner.run()[39m (pid=763384, ip=222.29.51.203, actor_id=6abda8e463b88a7ddc8ea88601000000, repr=<main_ppo.TaskRunner object at 0x7ef20f5f70d0>)
+  File "/home/wangyc/verl/verl/trainer/main_ppo.py", line 208, in run
+    trainer.fit()
+  File "/home/wangyc/verl/verl/trainer/ppo/ray_trainer.py", line 928, in fit
+    gen_batch_output = self.actor_rollout_wg.generate_sequences(gen_batch)
+  File "/home/wangyc/verl/verl/single_controller/ray/base.py", line 43, in func
+    output = ray.get(output)
+ray.exceptions.ActorDiedError: The actor died unexpectedly before finishing this task.
+	class_name: create_colocated_worker_cls.<locals>.WorkerDict
+	actor_id: 7cd2fa83e125d585ca1efd0701000000
+	pid: 766805
+	name: yeT8ZrWorkerDict_0:0
+	namespace: 5c83c46d-d2a4-4bc5-9385-1dda8d767f28
+	ip: 222.29.51.203
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

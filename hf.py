@@ -21,7 +21,7 @@ def merge_by_placement(tensors: List[torch.Tensor], placement: Placement):
 
 if __name__ == '__main__':
     step = 264
-    local_dir = f"/home/wangyc/verl/checkpoints/qwen2.5-7b-grpo-hard-mcq/global_step_132/actor"  # 这里需要替换为绝对路径
+    local_dir = f"/home/wangyc/verl/cl3/global_step_132/actor"  # 这里需要替换为绝对路径
     
     # 创建 huggingface 目录
     hf_path = os.path.join(local_dir, 'huggingface')
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     
     # 复制配置文件和tokenizer文件
     import shutil
-    model_src_dir = "/home/wangyc/verl/Qwen/Qwen2___5-7B-Instruct"
+    model_src_dir = "/home/wangyc/verl/Qwen/Qwen2.5-7B-Instruct"
     
     # 复制config.json
     config_src = os.path.join(model_src_dir, "config.json")
@@ -51,7 +51,7 @@ if __name__ == '__main__':
             shutil.copy(src_file, dst_file)
             print(f"Copied {file}")
     
-    output_path = f"/home/wangyc/verl/models/Qwen2.5-7B-Instruct-GRPO_soft"  # 这里需要替换为绝对路径
+    output_path = f"/home/wangyc/verl/models/Qwen2.5-7B-Instruct-GRPO_soft_0.7"  # 这里需要替换为绝对路径
     os.makedirs(output_path, exist_ok=True) # <-- 添加这一行来创建目录
 
     # copy rank zero to find the shape of (dp, fsdp)

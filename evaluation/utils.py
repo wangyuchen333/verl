@@ -27,7 +27,7 @@ ground_truth_mapping = {
     'jec-qa-1-multi-choice': 'answer',
 }
 for subtask in lexeval_subtasks:
-    benchmark_mapping[f'lexeval_{subtask}'] = f'data/lawyer/LexEval/processed/{subtask}.jsonl'
+    benchmark_mapping[f'lexeval_{subtask}'] = f'data/lawyer/LexEval/{subtask}.jsonl'
     ground_truth_mapping[f'lexeval_{subtask}'] = 'answer'
 
 

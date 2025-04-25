@@ -1,4 +1,6 @@
 *.pt
+*.json
+*.jsonl
 **/*.pt
 # **/checkpoints
 **/wget-log
@@ -64,7 +66,6 @@ coverage.xml
 *.pot
 
 # Django stuff:
-*.log
 local_settings.py
 
 # Flask stuff:
@@ -123,9 +124,6 @@ tests/e2e/toy_examples/deepspeed/synchronous/output.txt
 
 
 # local logs
-logs
-log
-outputs
 
 # Large model files
 models/**/*.safetensors
