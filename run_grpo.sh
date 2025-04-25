@@ -5,7 +5,7 @@ set -euo pipefail
 # export PYTHONPATH=/home/wangyc/deeplawyer0:$PYTHONPATH
 export TOKENIZERS_PARALLELISM=false
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
-export WANDB_API_KEY=b040deeeb597f481c025b7c7db998c32d1736333
+# export WANDB_API_KEY=b040deeeb597f481c025b7c7db998c32d1736333
 export NO_COLOR=1 # <-- 添加这一行
 
 # 自动计算 GPU 数量与 TMP size
