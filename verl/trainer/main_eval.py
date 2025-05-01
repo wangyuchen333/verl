@@ -67,9 +67,30 @@ def get_custom_reward_fn(config):
 @ray.remote
 def process_item(reward_fn, data_source, response_lst, reward_data):
     ground_truth = reward_data["ground_truth"]
-    score_lst = [reward_fn(data_source, r, ground_truth) for r in response_lst]
-    return data_source, np.mean(score_lst)
+    score_lst = []
+    acc_reward_lst = []
+    for r in response_lst:
+        result = reward_fn(data_source, r, ground_truth)
+        # Ensure result is a dict and contains the necessary keys
+        if isinstance(result, dict):
+            # Append the main score (assuming it's the top-level 'score' key or the dict itself if score is the primary return)
+            # Adjust this line based on how your reward_fn returns the main score
+            main_score = result.get("score", 0.0) # Example: get 'score' key, default to 0.0 if not found
+            score_lst.append(main_score)
 
+            # Extract acc_reward from extra_info
+            if "extra_info" in result and "acc_reward" in result["extra_info"]:
+                acc_reward_lst.append(result["extra_info"]["acc_reward"])
+            else:
+                acc_reward_lst.append(0.0) # Default if acc_reward is missing
+        else:
+             # Handle cases where result is not a dict (e.g., just a float score)
+             # In this case, we might only have the main score
+             score_lst.append(float(result)) # Assume result is the main score
+             acc_reward_lst.append(0.0) # No answer_score available
+
+    # Return data_source, mean of main scores, mean of answer rewards
+    return data_source, np.mean(score_lst), np.mean(acc_reward_lst)
 
 @hydra.main(config_path="config", config_name="evaluation", version_base=None)
 def main(config):
@@ -86,7 +107,9 @@ def main(config):
         ray.init(num_cpus=config.ray_init.num_cpus)
 
     # evaluate test_score based on data source
-    data_source_reward = defaultdict(list)
+    # Use two dictionaries to store the scores separately
+    data_source_total_reward = defaultdict(list)
+    data_source_acc_reward = defaultdict(list)
     compute_score = get_custom_reward_fn(config)
 
     # Create remote tasks
@@ -95,20 +118,45 @@ def main(config):
     ]
 
     # Process results as they come in
+    print("Processing results...") # Added print statement
     with tqdm(total=total) as pbar:
         while len(remote_tasks) > 0:
             # Use ray.wait to get completed tasks
             done_ids, remote_tasks = ray.wait(remote_tasks)
             for result_id in done_ids:
-                data_source, score = ray.get(result_id)
-                data_source_reward[data_source].append(score)
+                try:
+                    # Unpack both scores
+                    data_source, score, answer_score = ray.get(result_id)
+                    # Append scores to their respective dictionaries
+                    data_source_total_reward[data_source].append(score)
+                    data_source_acc_reward[data_source].append(answer_score)
+                except Exception as e:
+                    print(f"Error processing result {result_id}: {e}") # Add error handling for ray.get
                 pbar.update(1)
 
+    # Calculate and store metrics for both scores
     metric_dict = {}
-    for data_source, rewards in data_source_reward.items():
-        metric_dict[f"test_score/{data_source}"] = np.mean(rewards)
+    print("\nCalculating final metrics...") # Added print statement
 
-    print(metric_dict)
+    # Calculate mean total score
+    for data_source, scores in data_source_total_reward.items():
+        if scores: # Ensure list is not empty
+             metric_dict[f"test_score/{data_source}"] = np.mean(scores)
+        else:
+             metric_dict[f"test_score/{data_source}"] = 0.0 # Or handle as appropriate
+
+    # Calculate mean answer score
+    for data_source, answer_scores in data_source_acc_reward.items():
+         if answer_scores: # Ensure list is not empty
+             metric_dict[f"test_answer_score/{data_source}"] = np.mean(answer_scores)
+         else:
+              metric_dict[f"test_answer_score/{data_source}"] = 0.0 # Or handle as appropriate
+
+
+    print("\n--- Evaluation Metrics ---") # Updated print message
+    # Print metrics in a more readable format
+    for key, value in metric_dict.items():
+        print(f"{key}: {value:.4f}") # Format to 4 decimal places
 
 
 if __name__ == "__main__":

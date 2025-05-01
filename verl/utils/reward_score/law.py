@@ -1,6 +1,6 @@
 import re
 
-def format_reward(predict):
+def acc_reward(predict):
     """Reward function that checks if the completion has a specific format."""
     pattern = r".*?<思考>.*?</思考>.*?<回答>.*?</回答>"
     match = re.match(pattern, predict, re.DOTALL | re.MULTILINE) 
@@ -37,10 +37,12 @@ def compute_score(predict, ground_truth, **kwargs) -> dict:
     """Compute the score of the completion."""
     format_score = format_reward(predict)
     accuracy_score = verify_multiple_choice(predict, ground_truth)
+    acc_reward_score = acc_reward(predict)
     return {
         "score": format_score + accuracy_score,
         "extra_info": {
             "format_reward": format_score,
             "answer_reward": accuracy_score,
+            "acc_reward": acc_reward_score,
         }
     }
