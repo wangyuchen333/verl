@@ -1,6 +1,25 @@
 import re
 
 def acc_reward(predict):
+    """
+    Soft Reward for multiple-choice questions:
+    - Penalize 0.5 points for each incorrect answer.
+    - Penalize 0.5 points for missing a correct answer.
+    - Minimum score of 0.
+    """
+    # Find all answers in the format of {A, B, C, D, ...}
+    match = re.search(r'\{[\u4e00-\u9fffA-Za-z,\s]*\}[^{]*$', predict)
+    
+    if match is None:
+        return 0.0  # No answers found, return 0 score
+
+    # Extract all the chosen answers (A, B, C, D, etc.)
+    chosen_answers = set(re.findall(r'[A-Z]', match.group()))
+    ground_truth = set(ground_truth)
+    return 1.0 if chosen_answers == ground_truth else 0.0
+
+
+def format_reward(predict):
     """Reward function that checks if the completion has a specific format."""
     pattern = r".*?<思考>.*?</思考>.*?<回答>.*?</回答>"
     match = re.match(pattern, predict, re.DOTALL | re.MULTILINE) 
@@ -43,6 +62,6 @@ def compute_score(predict, ground_truth, **kwargs) -> dict:
         "extra_info": {
             "format_reward": format_score,
             "answer_reward": accuracy_score,
-            "acc_reward": acc_reward_score,
+            # "acc_reward": acc_reward_score,
         }
     }
