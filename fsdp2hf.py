@@ -57,11 +57,15 @@ if __name__ == '__main__':
                         help='Absolute path to the directory containing the sharded model checkpoints (e.g., model_world_size_X_rank_Y.pt).')
     parser.add_argument('--model_src_dir', type=str, required=False, default="/home/wangyc/verl/Qwen/Qwen2.5-7B-Instruct",
                         help='Absolute path to the directory containing the original Hugging Face model config and tokenizer files.')
+    parser.add_argument('--save_dir', type=str, required=False, default=None,
+                        help='Absolute path to the directory where the merged model will be saved. If not provided, the parent directory of local_dir will be used.')
 
     args = parser.parse_args()
 
     local_dir = args.local_dir
     model_src_dir = args.model_src_dir
+    save_dir = args.save_dir
+    # --- Validation ---
 
     if not os.path.isdir(local_dir):
         raise NotADirectoryError(f"Provided local_dir does not exist or is not a directory: {local_dir}")
@@ -69,9 +73,12 @@ if __name__ == '__main__':
          raise NotADirectoryError(f"Provided model_src_dir does not exist or is not a directory: {model_src_dir}")
 
     # --- Generate Output Path ---
-    parent_dir = os.path.dirname(local_dir)
-    grandparent_dir = os.path.dirname(parent_dir)
-    output_path = os.path.join(grandparent_dir, "hf")
+    if save_dir == None:
+        parent_dir = os.path.dirname(local_dir)
+        grandparent_dir = os.path.dirname(parent_dir)
+        output_path = os.path.join(grandparent_dir, "hf")
+    else:
+        output_path = args.save_dir
     # model_identifier = os.path.basename(local_dir) # Use the last part of local_dir for distinction
     # output_path = os.path.join(base_output_dir, model_identifier)
     print(f"Input directory (shards): {local_dir}")
