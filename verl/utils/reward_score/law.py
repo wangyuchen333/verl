@@ -46,12 +46,10 @@ def compute_score(predict, ground_truth, **kwargs) -> dict:
     answer_score, accuracy, precision, recall, f1 = verify_multiple_choice(predict, ground_truth)
     return {
         "score": format_score + answer_score,
-        "extra_info": {
-            "format_reward": format_score,
-            "answer_reward": answer_score,
-            "acc": accuracy,
-            "precision": precision,
-            "recall": recall,
-            "f1": f1,
-        }
+        "format_reward": format_score,
+        "answer_reward": answer_score,
+        "acc": accuracy,
+        "precision": precision,
+        "recall": recall,
+        "f1": f1,
     }
