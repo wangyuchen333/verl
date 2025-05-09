@@ -11,10 +11,10 @@ set -u
 set -o pipefail
 
 # Directory containing the sharded model checkpoints (input for fsdp2hf.py)
-SHARDED_MODEL_DIR="/home/wangyc/verl/checkpoints/qwen2.5-7b-grpo-hard-mcq/global_step_132/actor"
+SHARDED_MODEL_DIR="/home/wangyc/verl/checkpoints/qwen2.5-7b-grpo-hard-mcq/global_step_100/actor"
 
 # Directory for intermediate converted model
-INTERMEDIATE_DIR="/home/wangyc/verl/no_format"
+INTERMEDIATE_DIR="/home/wangyc/verl/new"
 
 # !!! IMPORTANT: Set this to the directory containing the original base model's
 # config.json and tokenizer files (e.g., /home/wangyc/verl/Qwen/Qwen2.5-7B-Instruct)

@@ -29,7 +29,7 @@ def verify_multiple_choice(predict, ground_truth):
     incorrect_answers = chosen_answers - ground_truth
     missing_answers = ground_truth - chosen_answers
 
-    score = max(0.0, 1.0 - 0.9 * (len(incorrect_answers) + len(missing_answers)))
+    score = max(0.0, 1.0 - 0.5 * (len(incorrect_answers) + len(missing_answers)))
 
     correct = len(chosen_answers & ground_truth)
     precision = correct / len(chosen_answers) if chosen_answers else 0.0
