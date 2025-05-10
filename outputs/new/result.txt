@@ -1,1 +1,1 @@
-jec-qa-1-multi-choice: {'Accuracy': 0.543519394512772}
+jec-qa-1-multi-choice: {'Accuracy': 0.554399243140965}

@@ -10,7 +10,7 @@ check_training_running() {
 # 自动检测空闲GPU的函数
 find_free_gpus() {
     nvidia-smi --query-gpu=index,memory.used,memory.total --format=csv,noheader,nounits | while IFS=, read -r index used total; do
-        if [ "$used" -lt "$((total * 20 / 100))" ]; then
+        if [ "$used" -lt "$((total * 30 / 100))" ]; then
             echo -n "$index,"
         fi
     done | sed 's/,$//'
@@ -70,15 +70,15 @@ start_training() {
         algorithm.adv_estimator=grpo \
         data.train_files=/home/wangyc/verl/data/jec-qa-1-multi-choice/train.parquet \
         data.val_files=/home/wangyc/verl/data/jec-qa-1-multi-choice/test.parquet\
-        data.train_batch_size=64 \
+        data.train_batch_size=128 \
         data.val_batch_size=1312 \
         data.max_prompt_length=1024 \
         data.max_response_length=1024 \
         actor_rollout_ref.model.path=/home/wangyc/verl/Qwen/Qwen2.5-7B-Instruct \
         actor_rollout_ref.actor.optim.lr=1e-6 \
         actor_rollout_ref.model.use_remove_padding=True \
-        actor_rollout_ref.actor.ppo_mini_batch_size=32 \
-        actor_rollout_ref.actor.ppo_micro_batch_size_per_gpu=8 \
+        actor_rollout_ref.actor.ppo_mini_batch_size=64 \
+        actor_rollout_ref.actor.ppo_micro_batch_size_per_gpu=16 \
         actor_rollout_ref.actor.loss_agg_mode="seq-mean-token-sum-norm" \
         actor_rollout_ref.actor.use_kl_loss=True \
         actor_rollout_ref.actor.kl_loss_coef=0.001 \

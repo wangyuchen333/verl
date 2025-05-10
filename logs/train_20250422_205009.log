@@ -1,7 +1,0 @@
-Could not override 'trainer.torch_dtype'.
-To append to your config use +trainer.torch_dtype=float16
-Key 'torch_dtype' is not in struct
-    full_key: trainer.torch_dtype
-    object_type=dict
-
-Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

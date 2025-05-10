@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "<frozen runpy>", line 189, in _run_module_as_main
-  File "<frozen runpy>", line 112, in _get_module_details
-  File "/home/wangyc/verl/verl/__init__.py", line 24, in <module>
-    from .protocol import DataProto
-  File "/home/wangyc/verl/verl/protocol.py", line 25, in <module>
-    import numpy as np
-ModuleNotFoundError: No module named 'numpy'
