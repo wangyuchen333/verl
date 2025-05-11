@@ -1,33 +1,28 @@
-export PYTORCH_CUDA_ALLOC_CONF="max_split_size_mb:64,garbage_collection_threshold:0.6"
-
-CUDA_VISIBLE_DEVICES=0 llamafactory-cli train \
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 llamafactory-cli train \
     --stage sft \
     --do_train \
     --model_name_or_path /home/wangyc/verl/Qwen/Qwen2.5-7B-Instruct \
     --dataset legal_multi_choice \
     --dataset_dir /home/wangyc/verl/data \
     --template qwen \
-    --finetuning_type lora \
-    --lora_target q_proj,v_proj \
-    --lora_r 64 \
-    --lora_alpha 128 \
+    --finetuning_type full \
     --output_dir /home/wangyc/verl/checkpoints/law-sft-qwen-2.5-7b-instruct \
     --overwrite_cache \
     --overwrite_output_dir \
-    --cutoff_len 1024 \
+    --cutoff_len 4096 \
     --preprocessing_num_workers 8 \
-    --per_device_train_batch_size 2 \
-    --gradient_accumulation_steps 16 \
+    --per_device_train_batch_size 4 \
+    --gradient_accumulation_steps 8 \
     --lr_scheduler_type cosine \
     --logging_steps 50 \
     --warmup_ratio 0.1 \
     --save_strategy steps \
     --save_steps 200 \
-    --learning_rate 2e-4 \
+    --learning_rate 1e-5 \
     --num_train_epochs 2.0 \
     --max_grad_norm 0.5 \
     --bf16 \
     --gradient_checkpointing \
+    --optim adamw_torch_fused \
     --report_to wandb \
-    --flash_attn fa2 \
-    --use_llama_pro
+    --flash_attn auto
