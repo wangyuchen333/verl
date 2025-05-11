@@ -1,27 +1,33 @@
-set -x
+export PYTORCH_CUDA_ALLOC_CONF="max_split_size_mb:64,garbage_collection_threshold:0.6"
 
-nproc_per_node=8
-save_path=/home/wangyc/verl/checkpoints/law-sft-qwen-2.5-7b-instruct-sp2-liger
-
-# Shift the arguments so $@ refers to the rest
-shift 2
-    # data.prompt_dict_keys=['instruction'] \
-    # +data.response_dict_keys=['output'] \
-
-torchrun --standalone --nnodes=1 --nproc_per_node=$nproc_per_node \
-     -m verl.trainer.fsdp_sft_trainer \
-    data.train_files=/home/wangyc/verl/processed_data/train.parquet \
-    data.val_files=/home/wangyc/verl/processed_data/test.parquet \
-    data.prompt_key=instruction \
-    data.response_key=output \
-    optim.lr=1e-4 \
-    data.micro_batch_size=4 \
-    model.partial_pretrain=/home/wangyc/verl/Qwen/Qwen2.5-7B-Instruct \
-    model.use_liger=True \
-    trainer.default_local_dir=$save_path \
-    trainer.project_name=law-sft \
-    trainer.experiment_name=law-sft-qwen-2.5-7b-instruct-sp2-liger \
-    trainer.logger=['console','wandb'] \
-    trainer.default_hdfs_dir=null $@ \
-    ulysses_sequence_parallel_size=2 \
-    use_remove_padding=true
+CUDA_VISIBLE_DEVICES=0 llamafactory-cli train \
+    --stage sft \
+    --do_train \
+    --model_name_or_path /home/wangyc/verl/Qwen/Qwen2.5-7B-Instruct \
+    --dataset legal_multi_choice \
+    --dataset_dir /home/wangyc/verl/data \
+    --template qwen \
+    --finetuning_type lora \
+    --lora_target q_proj,v_proj \
+    --lora_r 64 \
+    --lora_alpha 128 \
+    --output_dir /home/wangyc/verl/checkpoints/law-sft-qwen-2.5-7b-instruct \
+    --overwrite_cache \
+    --overwrite_output_dir \
+    --cutoff_len 1024 \
+    --preprocessing_num_workers 8 \
+    --per_device_train_batch_size 2 \
+    --gradient_accumulation_steps 16 \
+    --lr_scheduler_type cosine \
+    --logging_steps 50 \
+    --warmup_ratio 0.1 \
+    --save_strategy steps \
+    --save_steps 200 \
+    --learning_rate 2e-4 \
+    --num_train_epochs 2.0 \
+    --max_grad_norm 0.5 \
+    --bf16 \
+    --gradient_checkpointing \
+    --report_to wandb \
+    --flash_attn fa2 \
+    --use_llama_pro
