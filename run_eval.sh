@@ -11,14 +11,14 @@ set -u
 set -o pipefail
 
 # Directory containing the sharded model checkpoints (input for fsdp2hf.py)
-SHARDED_MODEL_DIR="/home/wangyc/verl/ck1/global_step_100/actor"
+SHARDED_MODEL_DIR="/home/wangyc/verl/checkpoints/qwen2.5-7b-grpo-hard-mcq/global_step_50/actor"
 
 # Directory for intermediate converted model
 INTERMEDIATE_DIR="/home/wangyc/verl/new"
 
 # !!! IMPORTANT: Set this to the directory containing the original base model's
 # config.json and tokenizer files (e.g., /home/wangyc/verl/Qwen/Qwen2.5-7B-Instruct)
-BASE_MODEL_DIR="/home/wangyc/verl/Qwen/Qwen2.5-7B-Instruct" # <--- SET THIS PATH
+BASE_MODEL_DIR="/home/wangyc/.cache/modelscope/hub/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B" # <--- SET THIS PATH
 
 # --- Environment Setup ---
 
@@ -37,17 +37,15 @@ echo "-------------------------------------"
 # --- Step 1: Convert FSDP to HF format ---
 
 # Check if conversion is already done
-if [ -d "$INTERMEDIATE_DIR" ] && [ -f "$INTERMEDIATE_DIR/config.json" ]; then
-    echo "Found existing converted model in ${INTERMEDIATE_DIR}, skipping conversion step..."
-else
-    echo "Converting FSDP model to HF format..."
-    python fsdp2hf.py \
-        --local_dir "$SHARDED_MODEL_DIR" \
-        --save_dir "$INTERMEDIATE_DIR"
-    echo "-------------------------------------"
-    echo "FSDP to HF Conversion Complete."
-    echo "-------------------------------------"
-fi
+
+echo "Converting FSDP model to HF format..."
+python fsdp2hf.py \
+    --local_dir "$SHARDED_MODEL_DIR" \
+    --save_dir "$INTERMEDIATE_DIR"
+echo "-------------------------------------"
+echo "FSDP to HF Conversion Complete."
+echo "-------------------------------------"
+
 
 # --- Step 2: Run Evaluation ---
 
