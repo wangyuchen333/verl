@@ -39,23 +39,7 @@ start_training() {
     export TMP_SIZE=$((N_GPUS / 4))
     NUM_GPUS=$(echo $CUDA_VISIBLE_DEVICES | tr ',' '\n' | wc -l)
 
-    if  [ $NUM_GPUS -eq 4 ]; then
-        TENSOR_PARALLEL_SIZE=2
-        BATCH_SIZE=4
-        echo "检测到4张GPU，调整 tensor_parallel_size=2, batch_size=4"
-    elif [ $NUM_GPUS -eq 6 ]; then
-        TENSOR_PARALLEL_SIZE=2
-        BATCH_SIZE=6
-        echo "检测到6张GPU，调整 tensor_parallel_size=2, batch_size=6"
-    elif [ $NUM_GPUS -eq 8 ]; then
-        TENSOR_PARALLEL_SIZE=2
-        BATCH_SIZE=8
-        echo "检测到8张GPU，调整 tensor_parallel_size=2, batch_size=8"
-    else
-        echo "警告：未识别的GPU数量 $NUM_GPUS，使用默认设置"
-        TENSOR_PARALLEL_SIZE=2
-        BATCH_SIZE=2
-    fi
+
 
     # 日志配置
     mkdir -p logs
@@ -70,15 +54,15 @@ start_training() {
         algorithm.adv_estimator=grpo \
         data.train_files=/home/wangyc/verl/data/jec-qa-1-multi-choice/train.parquet \
         data.val_files=/home/wangyc/verl/data/jec-qa-1-multi-choice/test.parquet\
-        data.train_batch_size=128 \
+        data.train_batch_size=64 \
         data.val_batch_size=1312 \
         data.max_prompt_length=1024 \
-        data.max_response_length=1024 \
-        actor_rollout_ref.model.path=/home/wangyc/verl/Qwen/Qwen2.5-7B-Instruct \
+        data.max_response_length=2048 \
+        actor_rollout_ref.model.path=/home/wangyc/verl/checkpoints/law-sft-qwen-2.5-7b-instruct/checkpoint-176 \
         actor_rollout_ref.actor.optim.lr=1e-6 \
         actor_rollout_ref.model.use_remove_padding=True \
-        actor_rollout_ref.actor.ppo_mini_batch_size=64 \
-        actor_rollout_ref.actor.ppo_micro_batch_size_per_gpu=16 \
+        actor_rollout_ref.actor.ppo_mini_batch_size=16 \
+        actor_rollout_ref.actor.ppo_micro_batch_size_per_gpu=4 \
         actor_rollout_ref.actor.loss_agg_mode="seq-mean-token-sum-norm" \
         actor_rollout_ref.actor.use_kl_loss=True \
         actor_rollout_ref.actor.kl_loss_coef=0.001 \
@@ -87,12 +71,12 @@ start_training() {
         actor_rollout_ref.model.enable_gradient_checkpointing=True \
         actor_rollout_ref.actor.fsdp_config.param_offload=False \
         actor_rollout_ref.actor.fsdp_config.optimizer_offload=False \
-        actor_rollout_ref.rollout.log_prob_micro_batch_size_per_gpu=32 \
+        actor_rollout_ref.rollout.log_prob_micro_batch_size_per_gpu=16 \
         actor_rollout_ref.rollout.tensor_model_parallel_size=2 \
         actor_rollout_ref.rollout.name=vllm \
         actor_rollout_ref.rollout.gpu_memory_utilization=0.6 \
         actor_rollout_ref.rollout.n=6 \
-        actor_rollout_ref.ref.log_prob_micro_batch_size_per_gpu=32 \
+        actor_rollout_ref.ref.log_prob_micro_batch_size_per_gpu=16 \
         actor_rollout_ref.ref.fsdp_config.param_offload=True \
         algorithm.use_kl_in_reward=False \
         algorithm.norm_adv_by_std_in_grpo=False \

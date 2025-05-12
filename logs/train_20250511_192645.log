@@ -1,0 +1,160 @@
+[2025-05-11 19:26:50,736] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2025-05-11 19:26:53,863	INFO worker.py:1832 -- Started a local Ray instance. View the dashboard at [1m[32m127.0.0.1:8265 [39m[22m
+[36m(TemporaryActor pid=3588794)[0m Exception raised in creation task: The actor died because of an error raised in its creation task, [36mray::TaskRunner.__init__()[39m (pid=3588794, ip=222.29.51.203, actor_id=b83f94d90cb520acd054774b01000000, repr=<main_ppo.FunctionActorManager._create_fake_actor_class.<locals>.TemporaryActor object at 0x7eef1cd7f100>)
+[36m(pid=3588794)[0m [2025-05-11 19:26:59,944] [WARNING] [real_accelerator.py:174:get_accelerator] Setting accelerator to CPU. If you have GPU or other accelerator, we were unable to detect it.
+[36m(pid=3588794)[0m [2025-05-11 19:26:59,945] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cpu (auto detect)
+[36m(TemporaryActor pid=3588794)[0m RuntimeError: The actor with name TaskRunner failed to import on the worker. This may be because needed library dependencies are not installed in the worker environment:
+[36m(TemporaryActor pid=3588794)[0m 
+Error executing job with overrides: ['algorithm.adv_estimator=grpo', 'data.train_files=/home/wangyc/verl/data/jec-qa-1-multi-choice/train.parquet', 'data.val_files=/home/wangyc/verl/data/jec-qa-1-multi-choice/test.parquet', 'data.train_batch_size=128', 'data.val_batch_size=1312', 'data.max_prompt_length=1024', 'data.max_response_length=1024', 'actor_rollout_ref.model.path=/home/wangyc/verl/checkpoints/law-sft-qwen-2.5-7b-instruct/checkpoint-176', 'actor_rollout_ref.actor.optim.lr=1e-6', 'actor_rollout_ref.model.use_remove_padding=True', 'actor_rollout_ref.actor.ppo_mini_batch_size=64', 'actor_rollout_ref.actor.ppo_micro_batch_size_per_gpu=16', 'actor_rollout_ref.actor.loss_agg_mode=seq-mean-token-sum-norm', 'actor_rollout_ref.actor.use_kl_loss=True', 'actor_rollout_ref.actor.kl_loss_coef=0.001', 'actor_rollout_ref.actor.kl_loss_type=low_var_kl', 'actor_rollout_ref.actor.entropy_coeff=0', 'actor_rollout_ref.model.enable_gradient_checkpointing=True', 'actor_rollout_ref.actor.fsdp_config.param_offload=False', 'actor_rollout_ref.actor.fsdp_config.optimizer_offload=False', 'actor_rollout_ref.rollout.log_prob_micro_batch_size_per_gpu=32', 'actor_rollout_ref.rollout.tensor_model_parallel_size=2', 'actor_rollout_ref.rollout.name=vllm', 'actor_rollout_ref.rollout.gpu_memory_utilization=0.6', 'actor_rollout_ref.rollout.n=6', 'actor_rollout_ref.ref.log_prob_micro_batch_size_per_gpu=32', 'actor_rollout_ref.ref.fsdp_config.param_offload=True', 'algorithm.use_kl_in_reward=False', 'algorithm.norm_adv_by_std_in_grpo=False', 'trainer.critic_warmup=0', "trainer.logger=['console','wandb']", 'trainer.project_name=Lawyer-Zero', 'trainer.experiment_name=qwen2.5-7b-grpo-mcq', 'trainer.n_gpus_per_node=8', 'trainer.nnodes=1', 'trainer.default_local_dir=checkpoints/qwen2.5-7b-grpo-hard-mcq', 'trainer.save_freq=50', 'trainer.test_freq=10', 'trainer.total_epochs=2']
+[36m(TemporaryActor pid=3588794)[0m [36mray::TaskRunner.__init__()[39m (pid=3588794, ip=222.29.51.203, actor_id=b83f94d90cb520acd054774b01000000, repr=<main_ppo.FunctionActorManager._create_fake_actor_class.<locals>.TemporaryActor object at 0x7eef1cd7f100>)
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1967, in _get_module
+[36m(TemporaryActor pid=3588794)[0m     return importlib.import_module("." + module_name, self.__name__)
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/importlib/__init__.py", line 126, in import_module
+[36m(TemporaryActor pid=3588794)[0m     return _bootstrap._gcd_import(name[level:], package, level)
+[36m(TemporaryActor pid=3588794)[0m   File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+[36m(TemporaryActor pid=3588794)[0m   File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+[36m(TemporaryActor pid=3588794)[0m   File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+[36m(TemporaryActor pid=3588794)[0m   File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+[36m(TemporaryActor pid=3588794)[0m   File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+[36m(TemporaryActor pid=3588794)[0m   File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/transformers/models/mistral/modeling_mistral.py", line 26, in <module>
+[36m(TemporaryActor pid=3588794)[0m     from ...modeling_utils import ALL_ATTENTION_FUNCTIONS, PreTrainedModel
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/transformers/modeling_utils.py", line 158, in <module>
+[36m(TemporaryActor pid=3588794)[0m     import deepspeed
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/__init__.py", line 25, in <module>
+[36m(TemporaryActor pid=3588794)[0m     from . import ops
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/ops/__init__.py", line 11, in <module>
+[36m(TemporaryActor pid=3588794)[0m     from . import transformer
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/ops/transformer/__init__.py", line 7, in <module>
+[36m(TemporaryActor pid=3588794)[0m     from .inference.config import DeepSpeedInferenceConfig
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/ops/transformer/inference/__init__.py", line 7, in <module>
+[36m(TemporaryActor pid=3588794)[0m     from ....model_implementations.transformers.ds_transformer import DeepSpeedTransformerInference
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/model_implementations/__init__.py", line 6, in <module>
+[36m(TemporaryActor pid=3588794)[0m     from .transformers.ds_transformer import DeepSpeedTransformerInference
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/model_implementations/transformers/ds_transformer.py", line 18, in <module>
+[36m(TemporaryActor pid=3588794)[0m     from deepspeed.ops.transformer.inference.triton.mlp import TritonMLP
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/ops/transformer/inference/triton/__init__.py", line 10, in <module>
+[36m(TemporaryActor pid=3588794)[0m     from .ops import *
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/ops/transformer/inference/triton/ops.py", line 6, in <module>
+[36m(TemporaryActor pid=3588794)[0m     import deepspeed.ops.transformer.inference.triton.matmul_ext as matmul_ext
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 10, in <module>
+[36m(TemporaryActor pid=3588794)[0m     import deepspeed.ops.transformer.inference.triton.triton_matmul_kernel as triton_matmul_kernel
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/ops/transformer/inference/triton/triton_matmul_kernel.py", line 120, in <module>
+[36m(TemporaryActor pid=3588794)[0m     def _fp_matmul(
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/triton/runtime/autotuner.py", line 368, in decorator
+[36m(TemporaryActor pid=3588794)[0m     return Autotuner(fn, fn.arg_names, configs, key, reset_to_zero, restore_value, pre_hook=pre_hook,
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/triton/runtime/autotuner.py", line 130, in __init__
+[36m(TemporaryActor pid=3588794)[0m     self.do_bench = driver.active.get_benchmarker()
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/triton/runtime/driver.py", line 23, in __getattr__
+[36m(TemporaryActor pid=3588794)[0m     self._initialize_obj()
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/triton/runtime/driver.py", line 20, in _initialize_obj
+[36m(TemporaryActor pid=3588794)[0m     self._obj = self._init_fn()
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/triton/runtime/driver.py", line 8, in _create_driver
+[36m(TemporaryActor pid=3588794)[0m     raise RuntimeError(f"{len(actives)} active drivers ({actives}). There should only be one.")
+[36m(TemporaryActor pid=3588794)[0m RuntimeError: 0 active drivers ([]). There should only be one.
+[36m(TemporaryActor pid=3588794)[0m 
+[36m(TemporaryActor pid=3588794)[0m The above exception was the direct cause of the following exception:
+[36m(TemporaryActor pid=3588794)[0m 
+[36m(TemporaryActor pid=3588794)[0m [36mray::TaskRunner.__init__()[39m (pid=3588794, ip=222.29.51.203, actor_id=b83f94d90cb520acd054774b01000000, repr=<main_ppo.FunctionActorManager._create_fake_actor_class.<locals>.TemporaryActor object at 0x7eef1cd7f100>)
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/verl/verl/trainer/ppo/ray_trainer.py", line 53, in <module>
+[36m(TemporaryActor pid=3588794)[0m     from verl.utils.dataset.rl_dataset import RLHFDataset, collate_fn
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/verl/verl/utils/dataset/__init__.py", line 15, in <module>
+[36m(TemporaryActor pid=3588794)[0m     from .rl_dataset import RLHFDataset
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/verl/verl/utils/dataset/rl_dataset.py", line 29, in <module>
+[36m(TemporaryActor pid=3588794)[0m     from verl.utils.model import compute_position_id_with_mask
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/verl/verl/utils/model.py", line 25, in <module>
+[36m(TemporaryActor pid=3588794)[0m     from transformers import (
+[36m(TemporaryActor pid=3588794)[0m   File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1956, in __getattr__
+[36m(TemporaryActor pid=3588794)[0m     value = getattr(module, name)
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1955, in __getattr__
+[36m(TemporaryActor pid=3588794)[0m     module = self._get_module(self._class_to_module[name])
+[36m(TemporaryActor pid=3588794)[0m   File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1969, in _get_module
+[36m(TemporaryActor pid=3588794)[0m     raise RuntimeError(
+[36m(TemporaryActor pid=3588794)[0m RuntimeError: Failed to import transformers.models.mistral.modeling_mistral because of the following error (look up to see its traceback):
+[36m(TemporaryActor pid=3588794)[0m 0 active drivers ([]). There should only be one.
+Traceback (most recent call last):
+  File "/home/wangyc/verl/verl/trainer/main_ppo.py", line 63, in main
+    run_ppo(config)
+  File "/home/wangyc/verl/verl/trainer/main_ppo.py", line 80, in run_ppo
+    ray.get(runner.run.remote(config))
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/ray/_private/worker.py", line 2771, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/ray/_private/worker.py", line 921, in get_objects
+    raise value
+ray.exceptions.ActorDiedError: The actor died because of an error raised in its creation task, [36mray::TaskRunner.__init__()[39m (pid=3588794, ip=222.29.51.203, actor_id=b83f94d90cb520acd054774b01000000, repr=<main_ppo.FunctionActorManager._create_fake_actor_class.<locals>.TemporaryActor object at 0x7eef1cd7f100>)
+RuntimeError: The actor with name TaskRunner failed to import on the worker. This may be because needed library dependencies are not installed in the worker environment:
+
+[36mray::TaskRunner.__init__()[39m (pid=3588794, ip=222.29.51.203, actor_id=b83f94d90cb520acd054774b01000000, repr=<main_ppo.FunctionActorManager._create_fake_actor_class.<locals>.TemporaryActor object at 0x7eef1cd7f100>)
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1967, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/transformers/models/mistral/modeling_mistral.py", line 26, in <module>
+    from ...modeling_utils import ALL_ATTENTION_FUNCTIONS, PreTrainedModel
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/transformers/modeling_utils.py", line 158, in <module>
+    import deepspeed
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/__init__.py", line 25, in <module>
+    from . import ops
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/ops/__init__.py", line 11, in <module>
+    from . import transformer
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/ops/transformer/__init__.py", line 7, in <module>
+    from .inference.config import DeepSpeedInferenceConfig
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/ops/transformer/inference/__init__.py", line 7, in <module>
+    from ....model_implementations.transformers.ds_transformer import DeepSpeedTransformerInference
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/model_implementations/__init__.py", line 6, in <module>
+    from .transformers.ds_transformer import DeepSpeedTransformerInference
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/model_implementations/transformers/ds_transformer.py", line 18, in <module>
+    from deepspeed.ops.transformer.inference.triton.mlp import TritonMLP
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/ops/transformer/inference/triton/__init__.py", line 10, in <module>
+    from .ops import *
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/ops/transformer/inference/triton/ops.py", line 6, in <module>
+    import deepspeed.ops.transformer.inference.triton.matmul_ext as matmul_ext
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/ops/transformer/inference/triton/matmul_ext.py", line 10, in <module>
+    import deepspeed.ops.transformer.inference.triton.triton_matmul_kernel as triton_matmul_kernel
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/deepspeed/ops/transformer/inference/triton/triton_matmul_kernel.py", line 120, in <module>
+    def _fp_matmul(
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/triton/runtime/autotuner.py", line 368, in decorator
+    return Autotuner(fn, fn.arg_names, configs, key, reset_to_zero, restore_value, pre_hook=pre_hook,
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/triton/runtime/autotuner.py", line 130, in __init__
+    self.do_bench = driver.active.get_benchmarker()
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/triton/runtime/driver.py", line 23, in __getattr__
+    self._initialize_obj()
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/triton/runtime/driver.py", line 20, in _initialize_obj
+    self._obj = self._init_fn()
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/triton/runtime/driver.py", line 8, in _create_driver
+    raise RuntimeError(f"{len(actives)} active drivers ({actives}). There should only be one.")
+RuntimeError: 0 active drivers ([]). There should only be one.
+
+The above exception was the direct cause of the following exception:
+
+[36mray::TaskRunner.__init__()[39m (pid=3588794, ip=222.29.51.203, actor_id=b83f94d90cb520acd054774b01000000, repr=<main_ppo.FunctionActorManager._create_fake_actor_class.<locals>.TemporaryActor object at 0x7eef1cd7f100>)
+  File "/home/wangyc/verl/verl/trainer/ppo/ray_trainer.py", line 53, in <module>
+    from verl.utils.dataset.rl_dataset import RLHFDataset, collate_fn
+  File "/home/wangyc/verl/verl/utils/dataset/__init__.py", line 15, in <module>
+    from .rl_dataset import RLHFDataset
+  File "/home/wangyc/verl/verl/utils/dataset/rl_dataset.py", line 29, in <module>
+    from verl.utils.model import compute_position_id_with_mask
+  File "/home/wangyc/verl/verl/utils/model.py", line 25, in <module>
+    from transformers import (
+  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1956, in __getattr__
+    value = getattr(module, name)
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1955, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+  File "/home/wangyc/miniconda3/envs/verl/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1969, in _get_module
+    raise RuntimeError(
+RuntimeError: Failed to import transformers.models.mistral.modeling_mistral because of the following error (look up to see its traceback):
+0 active drivers ([]). There should only be one.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

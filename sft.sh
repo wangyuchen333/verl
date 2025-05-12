@@ -4,15 +4,17 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 llamafactory-cli train \
     --model_name_or_path /home/wangyc/verl/Qwen/Qwen2.5-7B-Instruct \
     --dataset legal_multi_choice \
     --dataset_dir /home/wangyc/verl/data \
+    --deepspeed /home/wangyc/verl/LLaMA-Factory/examples/deepspeed/ds_z3_config.json \
     --template qwen \
     --finetuning_type full \
     --output_dir /home/wangyc/verl/checkpoints/law-sft-qwen-2.5-7b-instruct \
     --overwrite_cache \
     --overwrite_output_dir \
-    --cutoff_len 4096 \
+    --cutoff_len 2048 \
     --preprocessing_num_workers 8 \
-    --per_device_train_batch_size 4 \
+    --per_device_train_batch_size 1 \
     --gradient_accumulation_steps 8 \
+    --num_train_epochs 2.0 \
     --lr_scheduler_type cosine \
     --logging_steps 50 \
     --warmup_ratio 0.1 \
@@ -23,6 +25,5 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 llamafactory-cli train \
     --max_grad_norm 0.5 \
     --bf16 \
     --gradient_checkpointing \
-    --optim adamw_torch_fused \
     --report_to wandb \
     --flash_attn auto
